@@ -9,21 +9,96 @@
 /* Begin PBXBuildFile section */
 		1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */; };
 		1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */; };
-		1CCF7A212AEA54D800231B31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A202AEA54D800231B31 /* ViewController.swift */; };
-		1CCF7A242AEA54D800231B31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A222AEA54D800231B31 /* Main.storyboard */; };
+		1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A202AEA54D800231B31 /* MainViewController.swift */; };
 		1CCF7A262AEA54D900231B31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A252AEA54D900231B31 /* Assets.xcassets */; };
 		1CCF7A292AEA54D900231B31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A272AEA54D900231B31 /* LaunchScreen.storyboard */; };
+		1CCF7A332AEA8C5C00231B31 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A322AEA8C5C00231B31 /* MainView.swift */; };
+		1CCF7A372AEB7F3D00231B31 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1CCF7A362AEB7F3D00231B31 /* SnapKit */; };
+		1CCF7A3A2AEB7FDD00231B31 /* extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A392AEB7FDD00231B31 /* extension + UIColor.swift */; };
+		1CCF7A3F2AEB819E00231B31 /* extension + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A3E2AEB819E00231B31 /* extension + UIFont.swift */; };
+		1CCF7A552AEB826300231B31 /* TT Norms Pro ExtraBlack Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A432AEB826200231B31 /* TT Norms Pro ExtraBlack Italic.otf */; };
+		1CCF7A562AEB826300231B31 /* TT Norms Pro ExtraLight Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A442AEB826200231B31 /* TT Norms Pro ExtraLight Italic.otf */; };
+		1CCF7A572AEB826300231B31 /* TT Norms Pro Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A452AEB826200231B31 /* TT Norms Pro Light.otf */; };
+		1CCF7A582AEB826300231B31 /* TT Norms Pro ExtraBold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A462AEB826300231B31 /* TT Norms Pro ExtraBold Italic.otf */; };
+		1CCF7A592AEB826300231B31 /* TT Norms Pro Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A472AEB826300231B31 /* TT Norms Pro Regular.otf */; };
+		1CCF7A5A2AEB826300231B31 /* TT Norms Pro Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A482AEB826300231B31 /* TT Norms Pro Italic.otf */; };
+		1CCF7A5B2AEB826300231B31 /* TT Norms Pro Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A492AEB826300231B31 /* TT Norms Pro Thin.otf */; };
+		1CCF7A5C2AEB826300231B31 /* TT Norms Pro Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A4A2AEB826300231B31 /* TT Norms Pro Medium.otf */; };
+		1CCF7A5D2AEB826300231B31 /* TT Norms Pro ExtraBlack.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A4B2AEB826300231B31 /* TT Norms Pro ExtraBlack.otf */; };
+		1CCF7A5E2AEB826300231B31 /* TT Norms Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A4C2AEB826300231B31 /* TT Norms Pro Bold.otf */; };
+		1CCF7A5F2AEB826300231B31 /* TT Norms Pro ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A4D2AEB826300231B31 /* TT Norms Pro ExtraBold.otf */; };
+		1CCF7A602AEB826300231B31 /* TT Norms Pro ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A4E2AEB826300231B31 /* TT Norms Pro ExtraLight.otf */; };
+		1CCF7A612AEB826300231B31 /* TT Norms Pro Medium Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A4F2AEB826300231B31 /* TT Norms Pro Medium Italic.otf */; };
+		1CCF7A622AEB826300231B31 /* TT Norms Pro Thin Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A502AEB826300231B31 /* TT Norms Pro Thin Italic.otf */; };
+		1CCF7A632AEB826300231B31 /* TT Norms Pro Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A512AEB826300231B31 /* TT Norms Pro Bold Italic.otf */; };
+		1CCF7A642AEB826300231B31 /* TT Norms Pro Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A522AEB826300231B31 /* TT Norms Pro Black.otf */; };
+		1CCF7A652AEB826300231B31 /* TT Norms Pro Black Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A532AEB826300231B31 /* TT Norms Pro Black Italic.otf */; };
+		1CCF7A662AEB826300231B31 /* TT Norms Pro Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A542AEB826300231B31 /* TT Norms Pro Light Italic.otf */; };
+		1CCF7A682AEB834000231B31 /* extension + NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A672AEB834000231B31 /* extension + NSObject.swift */; };
+		1CCF7A6A2AEB842B00231B31 /* CustomMainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A692AEB842B00231B31 /* CustomMainViewCell.swift */; };
+		1CCF7A6D2AEBC04500231B31 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A6C2AEBC04500231B31 /* ProductModel.swift */; };
+		1CCF7A702AEE426400231B31 /* ListVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A6F2AEE426400231B31 /* ListVewController.swift */; };
+		1CCF7A732AEE427200231B31 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A722AEE427200231B31 /* ListView.swift */; };
+		1CCF7A752AEE489200231B31 /* CustomListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A742AEE489200231B31 /* CustomListCell.swift */; };
+		1CCF7A772AEFC2EC00231B31 /* CustomProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A762AEFC2EC00231B31 /* CustomProductCell.swift */; };
+		1CCF7A7A2AF106DF00231B31 /* ProductBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A792AF106DF00231B31 /* ProductBottomSheet.swift */; };
+		1CCF7A852AF2470100231B31 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A7C2AF2470000231B31 /* Inter-ExtraLight.ttf */; };
+		1CCF7A862AF2470100231B31 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A7D2AF2470000231B31 /* Inter-Bold.ttf */; };
+		1CCF7A872AF2470100231B31 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A7E2AF2470000231B31 /* Inter-Medium.ttf */; };
+		1CCF7A882AF2470100231B31 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A7F2AF2470000231B31 /* Inter-Thin.ttf */; };
+		1CCF7A892AF2470100231B31 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A802AF2470000231B31 /* Inter-ExtraBold.ttf */; };
+		1CCF7A8A2AF2470100231B31 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A812AF2470000231B31 /* Inter-SemiBold.ttf */; };
+		1CCF7A8B2AF2470100231B31 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A822AF2470100231B31 /* Inter-Regular.ttf */; };
+		1CCF7A8C2AF2470100231B31 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A832AF2470100231B31 /* Inter-Light.ttf */; };
+		1CCF7A8D2AF2470100231B31 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A842AF2470100231B31 /* Inter-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neobis_ecomarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1CCF7A202AEA54D800231B31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1CCF7A232AEA54D800231B31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1CCF7A202AEA54D800231B31 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1CCF7A252AEA54D900231B31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CCF7A282AEA54D900231B31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CCF7A2A2AEA54D900231B31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CCF7A322AEA8C5C00231B31 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1CCF7A392AEB7FDD00231B31 /* extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIColor.swift"; sourceTree = "<group>"; };
+		1CCF7A3E2AEB819E00231B31 /* extension + UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIFont.swift"; sourceTree = "<group>"; };
+		1CCF7A432AEB826200231B31 /* TT Norms Pro ExtraBlack Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro ExtraBlack Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A442AEB826200231B31 /* TT Norms Pro ExtraLight Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro ExtraLight Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A452AEB826200231B31 /* TT Norms Pro Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Light.otf"; sourceTree = "<group>"; };
+		1CCF7A462AEB826300231B31 /* TT Norms Pro ExtraBold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro ExtraBold Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A472AEB826300231B31 /* TT Norms Pro Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Regular.otf"; sourceTree = "<group>"; };
+		1CCF7A482AEB826300231B31 /* TT Norms Pro Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A492AEB826300231B31 /* TT Norms Pro Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Thin.otf"; sourceTree = "<group>"; };
+		1CCF7A4A2AEB826300231B31 /* TT Norms Pro Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Medium.otf"; sourceTree = "<group>"; };
+		1CCF7A4B2AEB826300231B31 /* TT Norms Pro ExtraBlack.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro ExtraBlack.otf"; sourceTree = "<group>"; };
+		1CCF7A4C2AEB826300231B31 /* TT Norms Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Bold.otf"; sourceTree = "<group>"; };
+		1CCF7A4D2AEB826300231B31 /* TT Norms Pro ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro ExtraBold.otf"; sourceTree = "<group>"; };
+		1CCF7A4E2AEB826300231B31 /* TT Norms Pro ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro ExtraLight.otf"; sourceTree = "<group>"; };
+		1CCF7A4F2AEB826300231B31 /* TT Norms Pro Medium Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Medium Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A502AEB826300231B31 /* TT Norms Pro Thin Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Thin Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A512AEB826300231B31 /* TT Norms Pro Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Bold Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A522AEB826300231B31 /* TT Norms Pro Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Black.otf"; sourceTree = "<group>"; };
+		1CCF7A532AEB826300231B31 /* TT Norms Pro Black Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Black Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A542AEB826300231B31 /* TT Norms Pro Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Norms Pro Light Italic.otf"; sourceTree = "<group>"; };
+		1CCF7A672AEB834000231B31 /* extension + NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + NSObject.swift"; sourceTree = "<group>"; };
+		1CCF7A692AEB842B00231B31 /* CustomMainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainViewCell.swift; sourceTree = "<group>"; };
+		1CCF7A6C2AEBC04500231B31 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		1CCF7A6F2AEE426400231B31 /* ListVewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVewController.swift; sourceTree = "<group>"; };
+		1CCF7A722AEE427200231B31 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		1CCF7A742AEE489200231B31 /* CustomListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListCell.swift; sourceTree = "<group>"; };
+		1CCF7A762AEFC2EC00231B31 /* CustomProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProductCell.swift; sourceTree = "<group>"; };
+		1CCF7A792AF106DF00231B31 /* ProductBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBottomSheet.swift; sourceTree = "<group>"; };
+		1CCF7A7C2AF2470000231B31 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		1CCF7A7D2AF2470000231B31 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		1CCF7A7E2AF2470000231B31 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		1CCF7A7F2AF2470000231B31 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		1CCF7A802AF2470000231B31 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1CCF7A812AF2470000231B31 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		1CCF7A822AF2470100231B31 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		1CCF7A832AF2470100231B31 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		1CCF7A842AF2470100231B31 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCF7A372AEB7F3D00231B31 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +132,140 @@
 		1CCF7A1B2AEA54D800231B31 /* neobis_ecomarket */ = {
 			isa = PBXGroup;
 			children = (
-				1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */,
-				1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */,
-				1CCF7A202AEA54D800231B31 /* ViewController.swift */,
-				1CCF7A222AEA54D800231B31 /* Main.storyboard */,
+				1CCF7A782AF106C000231B31 /* ProductScreen */,
+				1CCF7A6E2AEE424900231B31 /* ListScreen */,
+				1CCF7A312AEA608700231B31 /* MainScreen */,
+				1CCF7A302AEA604C00231B31 /* Delegates */,
+				1CCF7A382AEB7FCB00231B31 /* Extensions */,
+				1CCF7A6B2AEBC01F00231B31 /* Models */,
+				1CCF7A3B2AEB810700231B31 /* Fonts */,
 				1CCF7A252AEA54D900231B31 /* Assets.xcassets */,
 				1CCF7A272AEA54D900231B31 /* LaunchScreen.storyboard */,
 				1CCF7A2A2AEA54D900231B31 /* Info.plist */,
 			);
 			path = neobis_ecomarket;
+			sourceTree = "<group>";
+		};
+		1CCF7A302AEA604C00231B31 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */,
+				1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		1CCF7A312AEA608700231B31 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A202AEA54D800231B31 /* MainViewController.swift */,
+				1CCF7A342AEA8C6300231B31 /* View */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		1CCF7A342AEA8C6300231B31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A322AEA8C5C00231B31 /* MainView.swift */,
+				1CCF7A692AEB842B00231B31 /* CustomMainViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CCF7A382AEB7FCB00231B31 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A392AEB7FDD00231B31 /* extension + UIColor.swift */,
+				1CCF7A3E2AEB819E00231B31 /* extension + UIFont.swift */,
+				1CCF7A672AEB834000231B31 /* extension + NSObject.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1CCF7A3B2AEB810700231B31 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A7B2AF246F200231B31 /* inter */,
+				1CCF7A422AEB825000231B31 /* ttnorm */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1CCF7A422AEB825000231B31 /* ttnorm */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A532AEB826300231B31 /* TT Norms Pro Black Italic.otf */,
+				1CCF7A522AEB826300231B31 /* TT Norms Pro Black.otf */,
+				1CCF7A512AEB826300231B31 /* TT Norms Pro Bold Italic.otf */,
+				1CCF7A4C2AEB826300231B31 /* TT Norms Pro Bold.otf */,
+				1CCF7A432AEB826200231B31 /* TT Norms Pro ExtraBlack Italic.otf */,
+				1CCF7A4B2AEB826300231B31 /* TT Norms Pro ExtraBlack.otf */,
+				1CCF7A462AEB826300231B31 /* TT Norms Pro ExtraBold Italic.otf */,
+				1CCF7A4D2AEB826300231B31 /* TT Norms Pro ExtraBold.otf */,
+				1CCF7A442AEB826200231B31 /* TT Norms Pro ExtraLight Italic.otf */,
+				1CCF7A4E2AEB826300231B31 /* TT Norms Pro ExtraLight.otf */,
+				1CCF7A482AEB826300231B31 /* TT Norms Pro Italic.otf */,
+				1CCF7A542AEB826300231B31 /* TT Norms Pro Light Italic.otf */,
+				1CCF7A452AEB826200231B31 /* TT Norms Pro Light.otf */,
+				1CCF7A4F2AEB826300231B31 /* TT Norms Pro Medium Italic.otf */,
+				1CCF7A4A2AEB826300231B31 /* TT Norms Pro Medium.otf */,
+				1CCF7A472AEB826300231B31 /* TT Norms Pro Regular.otf */,
+				1CCF7A502AEB826300231B31 /* TT Norms Pro Thin Italic.otf */,
+				1CCF7A492AEB826300231B31 /* TT Norms Pro Thin.otf */,
+			);
+			path = ttnorm;
+			sourceTree = "<group>";
+		};
+		1CCF7A6B2AEBC01F00231B31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A6C2AEBC04500231B31 /* ProductModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1CCF7A6E2AEE424900231B31 /* ListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A6F2AEE426400231B31 /* ListVewController.swift */,
+				1CCF7A712AEE426800231B31 /* View */,
+			);
+			path = ListScreen;
+			sourceTree = "<group>";
+		};
+		1CCF7A712AEE426800231B31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A722AEE427200231B31 /* ListView.swift */,
+				1CCF7A742AEE489200231B31 /* CustomListCell.swift */,
+				1CCF7A762AEFC2EC00231B31 /* CustomProductCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CCF7A782AF106C000231B31 /* ProductScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A792AF106DF00231B31 /* ProductBottomSheet.swift */,
+			);
+			path = ProductScreen;
+			sourceTree = "<group>";
+		};
+		1CCF7A7B2AF246F200231B31 /* inter */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A842AF2470100231B31 /* Inter-Black.ttf */,
+				1CCF7A7D2AF2470000231B31 /* Inter-Bold.ttf */,
+				1CCF7A802AF2470000231B31 /* Inter-ExtraBold.ttf */,
+				1CCF7A7C2AF2470000231B31 /* Inter-ExtraLight.ttf */,
+				1CCF7A832AF2470100231B31 /* Inter-Light.ttf */,
+				1CCF7A7E2AF2470000231B31 /* Inter-Medium.ttf */,
+				1CCF7A822AF2470100231B31 /* Inter-Regular.ttf */,
+				1CCF7A812AF2470000231B31 /* Inter-SemiBold.ttf */,
+				1CCF7A7F2AF2470000231B31 /* Inter-Thin.ttf */,
+			);
+			path = inter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +284,9 @@
 			dependencies = (
 			);
 			name = neobis_ecomarket;
+			packageProductDependencies = (
+				1CCF7A362AEB7F3D00231B31 /* SnapKit */,
+			);
 			productName = neobis_ecomarket;
 			productReference = 1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +315,9 @@
 				Base,
 			);
 			mainGroup = 1CCF7A102AEA54D800231B31;
+			packageReferences = (
+				1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */,
+			);
 			productRefGroup = 1CCF7A1A2AEA54D800231B31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,8 +333,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CCF7A292AEA54D900231B31 /* LaunchScreen.storyboard in Resources */,
+				1CCF7A5E2AEB826300231B31 /* TT Norms Pro Bold.otf in Resources */,
+				1CCF7A862AF2470100231B31 /* Inter-Bold.ttf in Resources */,
+				1CCF7A582AEB826300231B31 /* TT Norms Pro ExtraBold Italic.otf in Resources */,
+				1CCF7A8A2AF2470100231B31 /* Inter-SemiBold.ttf in Resources */,
+				1CCF7A552AEB826300231B31 /* TT Norms Pro ExtraBlack Italic.otf in Resources */,
+				1CCF7A8C2AF2470100231B31 /* Inter-Light.ttf in Resources */,
+				1CCF7A622AEB826300231B31 /* TT Norms Pro Thin Italic.otf in Resources */,
+				1CCF7A652AEB826300231B31 /* TT Norms Pro Black Italic.otf in Resources */,
+				1CCF7A5C2AEB826300231B31 /* TT Norms Pro Medium.otf in Resources */,
+				1CCF7A5D2AEB826300231B31 /* TT Norms Pro ExtraBlack.otf in Resources */,
+				1CCF7A8B2AF2470100231B31 /* Inter-Regular.ttf in Resources */,
 				1CCF7A262AEA54D900231B31 /* Assets.xcassets in Resources */,
-				1CCF7A242AEA54D800231B31 /* Main.storyboard in Resources */,
+				1CCF7A5A2AEB826300231B31 /* TT Norms Pro Italic.otf in Resources */,
+				1CCF7A852AF2470100231B31 /* Inter-ExtraLight.ttf in Resources */,
+				1CCF7A8D2AF2470100231B31 /* Inter-Black.ttf in Resources */,
+				1CCF7A602AEB826300231B31 /* TT Norms Pro ExtraLight.otf in Resources */,
+				1CCF7A562AEB826300231B31 /* TT Norms Pro ExtraLight Italic.otf in Resources */,
+				1CCF7A632AEB826300231B31 /* TT Norms Pro Bold Italic.otf in Resources */,
+				1CCF7A892AF2470100231B31 /* Inter-ExtraBold.ttf in Resources */,
+				1CCF7A872AF2470100231B31 /* Inter-Medium.ttf in Resources */,
+				1CCF7A642AEB826300231B31 /* TT Norms Pro Black.otf in Resources */,
+				1CCF7A5B2AEB826300231B31 /* TT Norms Pro Thin.otf in Resources */,
+				1CCF7A5F2AEB826300231B31 /* TT Norms Pro ExtraBold.otf in Resources */,
+				1CCF7A572AEB826300231B31 /* TT Norms Pro Light.otf in Resources */,
+				1CCF7A882AF2470100231B31 /* Inter-Thin.ttf in Resources */,
+				1CCF7A612AEB826300231B31 /* TT Norms Pro Medium Italic.otf in Resources */,
+				1CCF7A662AEB826300231B31 /* TT Norms Pro Light Italic.otf in Resources */,
+				1CCF7A592AEB826300231B31 /* TT Norms Pro Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +371,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CCF7A212AEA54D800231B31 /* ViewController.swift in Sources */,
+				1CCF7A7A2AF106DF00231B31 /* ProductBottomSheet.swift in Sources */,
+				1CCF7A3A2AEB7FDD00231B31 /* extension + UIColor.swift in Sources */,
+				1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */,
+				1CCF7A752AEE489200231B31 /* CustomListCell.swift in Sources */,
+				1CCF7A3F2AEB819E00231B31 /* extension + UIFont.swift in Sources */,
+				1CCF7A332AEA8C5C00231B31 /* MainView.swift in Sources */,
+				1CCF7A702AEE426400231B31 /* ListVewController.swift in Sources */,
+				1CCF7A772AEFC2EC00231B31 /* CustomProductCell.swift in Sources */,
+				1CCF7A6D2AEBC04500231B31 /* ProductModel.swift in Sources */,
 				1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */,
 				1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */,
+				1CCF7A732AEE427200231B31 /* ListView.swift in Sources */,
+				1CCF7A6A2AEB842B00231B31 /* CustomMainViewCell.swift in Sources */,
+				1CCF7A682AEB834000231B31 /* extension + NSObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1CCF7A222AEA54D800231B31 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1CCF7A232AEA54D800231B31 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1CCF7A272AEA54D900231B31 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +528,9 @@
 				INFOPLIST_FILE = neobis_ecomarket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +556,9 @@
 				INFOPLIST_FILE = neobis_ecomarket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +594,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Snapkit/Snapkit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1CCF7A362AEB7F3D00231B31 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1CCF7A112AEA54D800231B31 /* Project object */;
 }
