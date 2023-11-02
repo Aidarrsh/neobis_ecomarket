@@ -17,6 +17,10 @@ extension UIFont {
         return UIFont(name: "TTNormsPro-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
     }
     
+    static func ttRegular(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "TTNormsPro-Regular", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
     static func interSemiBold(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: "Inter-SemiBold", size: size) ?? UIFont.systemFont(ofSize: size)
     }

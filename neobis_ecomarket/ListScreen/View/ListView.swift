@@ -64,6 +64,7 @@ class ListView: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.alwaysBounceVertical = true
         view.backgroundColor = .clear
+        view.contentInset.bottom = 100
         
         return view
     }()

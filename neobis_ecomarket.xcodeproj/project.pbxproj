@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E222AF3AA1000457629 /* CoreDataStack.swift */; };
+		1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */; };
 		1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */; };
 		1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */; };
 		1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A202AEA54D800231B31 /* MainViewController.swift */; };
@@ -51,9 +53,15 @@
 		1CCF7A8B2AF2470100231B31 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A822AF2470100231B31 /* Inter-Regular.ttf */; };
 		1CCF7A8C2AF2470100231B31 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A832AF2470100231B31 /* Inter-Light.ttf */; };
 		1CCF7A8D2AF2470100231B31 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF7A842AF2470100231B31 /* Inter-Black.ttf */; };
+		1CCF7A902AF266C500231B31 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A8E2AF266C500231B31 /* Model.xcdatamodeld */; };
+		1CCF7A932AF27F2D00231B31 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A922AF27F2D00231B31 /* TabbarController.swift */; };
+		1CCF7A962AF286A400231B31 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A952AF286A400231B31 /* InfoViewController.swift */; };
+		1CCF7A992AF286F900231B31 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A982AF286F900231B31 /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1CA29E222AF3AA1000457629 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIViewController.swift"; sourceTree = "<group>"; };
 		1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neobis_ecomarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +107,10 @@
 		1CCF7A822AF2470100231B31 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		1CCF7A832AF2470100231B31 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		1CCF7A842AF2470100231B31 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		1CCF7A8F2AF266C500231B31 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1CCF7A922AF27F2D00231B31 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		1CCF7A952AF286A400231B31 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		1CCF7A982AF286F900231B31 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CA29E212AF3AA0600457629 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1CA29E222AF3AA1000457629 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		1CCF7A102AEA54D800231B31 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +152,9 @@
 		1CCF7A1B2AEA54D800231B31 /* neobis_ecomarket */ = {
 			isa = PBXGroup;
 			children = (
+				1CA29E212AF3AA0600457629 /* CoreData */,
+				1CCF7A942AF2869700231B31 /* InfoScreen */,
+				1CCF7A912AF27F1800231B31 /* TabbarController */,
 				1CCF7A782AF106C000231B31 /* ProductScreen */,
 				1CCF7A6E2AEE424900231B31 /* ListScreen */,
 				1CCF7A312AEA608700231B31 /* MainScreen */,
@@ -142,6 +165,7 @@
 				1CCF7A252AEA54D900231B31 /* Assets.xcassets */,
 				1CCF7A272AEA54D900231B31 /* LaunchScreen.storyboard */,
 				1CCF7A2A2AEA54D900231B31 /* Info.plist */,
+				1CCF7A8E2AF266C500231B31 /* Model.xcdatamodeld */,
 			);
 			path = neobis_ecomarket;
 			sourceTree = "<group>";
@@ -179,6 +203,7 @@
 				1CCF7A392AEB7FDD00231B31 /* extension + UIColor.swift */,
 				1CCF7A3E2AEB819E00231B31 /* extension + UIFont.swift */,
 				1CCF7A672AEB834000231B31 /* extension + NSObject.swift */,
+				1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,6 +291,31 @@
 				1CCF7A7F2AF2470000231B31 /* Inter-Thin.ttf */,
 			);
 			path = inter;
+			sourceTree = "<group>";
+		};
+		1CCF7A912AF27F1800231B31 /* TabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A922AF27F2D00231B31 /* TabbarController.swift */,
+			);
+			path = TabbarController;
+			sourceTree = "<group>";
+		};
+		1CCF7A942AF2869700231B31 /* InfoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A972AF286F000231B31 /* View */,
+				1CCF7A952AF286A400231B31 /* InfoViewController.swift */,
+			);
+			path = InfoScreen;
+			sourceTree = "<group>";
+		};
+		1CCF7A972AF286F000231B31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF7A982AF286F900231B31 /* InfoView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,11 +422,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CCF7A7A2AF106DF00231B31 /* ProductBottomSheet.swift in Sources */,
+				1CCF7A932AF27F2D00231B31 /* TabbarController.swift in Sources */,
+				1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */,
 				1CCF7A3A2AEB7FDD00231B31 /* extension + UIColor.swift in Sources */,
+				1CCF7A902AF266C500231B31 /* Model.xcdatamodeld in Sources */,
 				1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */,
 				1CCF7A752AEE489200231B31 /* CustomListCell.swift in Sources */,
 				1CCF7A3F2AEB819E00231B31 /* extension + UIFont.swift in Sources */,
 				1CCF7A332AEA8C5C00231B31 /* MainView.swift in Sources */,
+				1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */,
+				1CCF7A962AF286A400231B31 /* InfoViewController.swift in Sources */,
 				1CCF7A702AEE426400231B31 /* ListVewController.swift in Sources */,
 				1CCF7A772AEFC2EC00231B31 /* CustomProductCell.swift in Sources */,
 				1CCF7A6D2AEBC04500231B31 /* ProductModel.swift in Sources */,
@@ -384,6 +439,7 @@
 				1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */,
 				1CCF7A732AEE427200231B31 /* ListView.swift in Sources */,
 				1CCF7A6A2AEB842B00231B31 /* CustomMainViewCell.swift in Sources */,
+				1CCF7A992AF286F900231B31 /* InfoView.swift in Sources */,
 				1CCF7A682AEB834000231B31 /* extension + NSObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +669,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		1CCF7A8E2AF266C500231B31 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1CCF7A8F2AF266C500231B31 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1CCF7A8F2AF266C500231B31 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1CCF7A112AEA54D800231B31 /* Project object */;
 }

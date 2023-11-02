@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>TT Norms Pro Regular.otf</string>
 		<string>Inter-SemiBold.ttf</string>
 		<string>TT Norms Pro Medium.otf</string>
 		<string>TT Norms Pro Bold.otf</string>

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class ListViewController: UIViewController {
     
@@ -24,7 +25,7 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.retrieveValues()
         setupView()
     }
     
@@ -227,4 +228,5 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
     }
+    
 }
