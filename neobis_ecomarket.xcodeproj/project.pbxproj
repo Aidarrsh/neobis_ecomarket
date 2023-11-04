@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C9178A42AF50F6F003D84B1 /* extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */; };
 		1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E222AF3AA1000457629 /* CoreDataStack.swift */; };
 		1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */; };
+		1CBF5FFD2AF3B57000647233 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF5FFC2AF3B57000647233 /* BagViewController.swift */; };
+		1CBF60002AF3B58E00647233 /* BagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF5FFF2AF3B58E00647233 /* BagView.swift */; };
+		1CBF60022AF3BDBF00647233 /* CustomBagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF60012AF3BDBF00647233 /* CustomBagCell.swift */; };
 		1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */; };
 		1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */; };
 		1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A202AEA54D800231B31 /* MainViewController.swift */; };
@@ -60,8 +64,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIImage.swift"; sourceTree = "<group>"; };
 		1CA29E222AF3AA1000457629 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIViewController.swift"; sourceTree = "<group>"; };
+		1CBF5FFC2AF3B57000647233 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
+		1CBF5FFF2AF3B58E00647233 /* BagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagView.swift; sourceTree = "<group>"; };
+		1CBF60012AF3BDBF00647233 /* CustomBagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBagCell.swift; sourceTree = "<group>"; };
 		1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neobis_ecomarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,12 +133,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C9178A52AF627AD003D84B1 /* OrderScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OrderScreen;
+			sourceTree = "<group>";
+		};
 		1CA29E212AF3AA0600457629 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				1CA29E222AF3AA1000457629 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		1CBF5FFB2AF3B55C00647233 /* BagScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1CBF5FFC2AF3B57000647233 /* BagViewController.swift */,
+				1CBF5FFE2AF3B57300647233 /* View */,
+			);
+			path = BagScreen;
+			sourceTree = "<group>";
+		};
+		1CBF5FFE2AF3B57300647233 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CBF5FFF2AF3B58E00647233 /* BagView.swift */,
+				1CBF60012AF3BDBF00647233 /* CustomBagCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1CCF7A102AEA54D800231B31 = {
@@ -152,7 +185,9 @@
 		1CCF7A1B2AEA54D800231B31 /* neobis_ecomarket */ = {
 			isa = PBXGroup;
 			children = (
+				1C9178A52AF627AD003D84B1 /* OrderScreen */,
 				1CA29E212AF3AA0600457629 /* CoreData */,
+				1CBF5FFB2AF3B55C00647233 /* BagScreen */,
 				1CCF7A942AF2869700231B31 /* InfoScreen */,
 				1CCF7A912AF27F1800231B31 /* TabbarController */,
 				1CCF7A782AF106C000231B31 /* ProductScreen */,
@@ -204,6 +239,7 @@
 				1CCF7A3E2AEB819E00231B31 /* extension + UIFont.swift */,
 				1CCF7A672AEB834000231B31 /* extension + NSObject.swift */,
 				1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */,
+				1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,8 +462,11 @@
 				1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */,
 				1CCF7A3A2AEB7FDD00231B31 /* extension + UIColor.swift in Sources */,
 				1CCF7A902AF266C500231B31 /* Model.xcdatamodeld in Sources */,
+				1C9178A42AF50F6F003D84B1 /* extension + UIImage.swift in Sources */,
 				1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */,
 				1CCF7A752AEE489200231B31 /* CustomListCell.swift in Sources */,
+				1CBF60002AF3B58E00647233 /* BagView.swift in Sources */,
+				1CBF5FFD2AF3B57000647233 /* BagViewController.swift in Sources */,
 				1CCF7A3F2AEB819E00231B31 /* extension + UIFont.swift in Sources */,
 				1CCF7A332AEA8C5C00231B31 /* MainView.swift in Sources */,
 				1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */,
@@ -438,6 +477,7 @@
 				1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */,
 				1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */,
 				1CCF7A732AEE427200231B31 /* ListView.swift in Sources */,
+				1CBF60022AF3BDBF00647233 /* CustomBagCell.swift in Sources */,
 				1CCF7A6A2AEB842B00231B31 /* CustomMainViewCell.swift in Sources */,
 				1CCF7A992AF286F900231B31 /* InfoView.swift in Sources */,
 				1CCF7A682AEB834000231B31 /* extension + NSObject.swift in Sources */,

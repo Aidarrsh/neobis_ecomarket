@@ -29,7 +29,7 @@ class TabBarController: UITabBarController {
         
         vc1.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(named: "homeTab")?.withAlignmentRectInsets(.init(top: 10, left: 0, bottom: 0, right: 0)), tag: 0)
         
-        let vc2 = UIViewController()
+        let vc2 = BagViewController()
         
         vc2.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "bagTab")?.withAlignmentRectInsets(.init(top: 10, left: 0, bottom: 0, right: 0)), tag: 0)
         

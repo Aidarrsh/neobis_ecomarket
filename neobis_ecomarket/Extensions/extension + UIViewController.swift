@@ -38,9 +38,7 @@ extension UIViewController {
                 let results = try context.fetch(fetchRequest)
                 
                 for result in results {
-                    if let testValue = result.descr {
-                        print(testValue)
-                    }
+                    print(result.id)
                 }
             } catch {
                 print("error")

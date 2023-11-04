@@ -13,6 +13,8 @@ class ListViewController: UIViewController {
     
     let contentView = ListView()
     var row: Int
+    var productItems = [ProductItem]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     init(row: Int) {
         self.row = row
@@ -25,7 +27,9 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.retrieveValues()
+//        createItem()
+//        deleteValues()
+//        retrieveValues()
         setupView()
     }
     
@@ -48,6 +52,23 @@ class ListViewController: UIViewController {
     
     @objc func backButtonPressed() {
         dismiss(animated: true)
+    }
+    
+    func createItem(){
+        let newItem = ProductItem(context: context)
+        newItem.id = 1
+        newItem.name = "яблоки"
+        newItem.descr = "вкусные"
+        newItem.count = 5
+        newItem.price = 50
+        
+        do {
+            try context.save()
+            self.retrieveValues()
+        }
+        catch {
+            
+        }
     }
 }
 
