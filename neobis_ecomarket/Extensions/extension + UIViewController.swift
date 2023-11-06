@@ -10,15 +10,15 @@ import UIKit
 import CoreData
 
 extension UIViewController {
-    func save(value: String) {
+    func save(value: Int) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let context = appDelegate.persistentContainer.viewContext
             
-            guard let entityDescription = NSEntityDescription.entity(forEntityName: "ProductItem", in: context) else { return }
+            guard let entityDescription = NSEntityDescription.entity(forEntityName: "BagItem", in: context) else { return }
             
             let newValue = NSManagedObject(entity: entityDescription, insertInto: context)
             
-            newValue.setValue(value, forKey: "descr")
+            newValue.setValue(value, forKey: "sumPrice")
             
             do {
                 try context.save()
@@ -74,7 +74,7 @@ extension UIViewController {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             
             let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ProductItem")
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BagItem")
             
             do {
                 let objects = try context.fetch(fetchRequest)

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Product {
     var image : String
@@ -20,4 +21,8 @@ struct ProductItemDTO: Decodable {
     let image: String
     let quantity: Int
     let price: String
+}
+
+struct Bag {
+    let sum: Int
 }

@@ -10,13 +10,24 @@ import UIKit
 import SnapKit
 import CoreData
 
+protocol ProductBottomSheetDelegate: AnyObject {
+    func bottomSheetDismissed()
+}
+
 class ProductBottomSheet: UIViewController {
     
+    weak var delegate: ProductBottomSheetDelegate?
     var priceCount = 0
     var count = 0
     let id: Int
     var productItems = [ProductItem]()
+    var bag: BagItem?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.delegate?.bottomSheetDismissed()
+    }
     
     init(id: Int) {
         self.id = id
@@ -137,6 +148,7 @@ class ProductBottomSheet: UIViewController {
         setupViews()
         setupConstraints()
         fetchData()
+        addTargets()
     }
     
     func setupViews() {
@@ -226,12 +238,122 @@ class ProductBottomSheet: UIViewController {
                     image.kf.setImage(with: photoURL) { result in }
                 }
                 productLabel.text = product.title
-                priceLabel.text = product.price
+                if let priceString = product.price, let price = Double(priceString) {
+                    let priceWithoutDecimal = Int(price)
+                    priceLabel.text = "\(priceWithoutDecimal) c"
+                } else {
+                    priceLabel.text = "N/A"
+                }
                 descriptionLabel.text = product.descr
+                if product.count != 0 {
+                    addButton.isHidden = true
+                    plusButton.isHidden = false
+                    minusButton.isHidden = false
+                    countLabel.isHidden = false
+                    priceCountLabel.isHidden = false
+                    countLabel.text = "\(product.count)"
+                    count = Int(product.count)
+                }
+                if let priceString = product.price, let price = Double(priceString) {
+                    priceCount = Int(Double(product.count) * price)
+                    priceCountLabel.text = "\(priceCount) c"
+                } else {
+                    print("Could not convert product.price to Double")
+                }
             }
             
         } catch {
             print("Error fetching data: \(error)")
+        }
+        
+        let fetchBagRequest: NSFetchRequest<BagItem> = BagItem.fetchRequest()
+        
+        do {
+            bag = try context.fetch(fetchBagRequest).first
+        } catch {
+            print("Error fetching data: \(error)")
+        }
+    }
+    
+    func addTargets() {
+        addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
+        minusButton.addTarget(self, action: #selector(minusButtonPressed), for: .touchUpInside)
+        plusButton.addTarget(self, action: #selector(plusButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func addButtonPressed() {
+        count += 1
+        
+        countLabel.text = "\(count)"
+        addButton.isHidden = true
+        plusButton.isHidden = false
+        minusButton.isHidden = false
+        countLabel.isHidden = false
+        priceCountLabel.isHidden = false
+        if let product = productItems.first {
+            product.count += 1
+//            print(product.count)
+            
+            if let priceString = product.price, let price = Double(priceString) {
+                bag?.sumPrice += Int32(price)
+                priceCount = Int(Double(product.count) * price)
+                priceCountLabel.text = "\(priceCount) c"
+            } else {
+                print("Could not convert product.price to Double")
+            }
+        }
+    }
+    
+    @objc func plusButtonPressed() {
+        if count < 50 {
+            count += 1
+            
+            countLabel.text = "\(count)"
+            addButton.isHidden = true
+            plusButton.isHidden = false
+            minusButton.isHidden = false
+            countLabel.isHidden = false
+            if let priceText = priceLabel.text, let price = Int(priceText) {
+                priceCount += price
+            }
+            if let product = productItems.first {
+                product.count += 1
+                print(product.count)
+                if let priceString = product.price, let price = Double(priceString) {
+                    bag?.sumPrice += Int32(price)
+                    priceCount = Int(Double(product.count) * price)
+                    priceCountLabel.text = "\(priceCount) c"
+                } else {
+                    print("Could not convert product.price to Double")
+                }
+            }
+        }
+    }
+    
+    @objc func minusButtonPressed() {
+        count -= 1
+        
+        countLabel.text = "\(count)"
+        if let priceText = priceLabel.text, let price = Int(priceText) {
+            priceCount += price
+        }
+        if let product = productItems.first {
+            product.count -= 1
+            if let priceString = product.price, let price = Double(priceString) {
+                bag?.sumPrice -= Int32(price)
+                priceCount = Int(Double(product.count) * price)
+                priceCountLabel.text = "\(priceCount) c"
+            } else {
+                print("Could not convert product.price to Double")
+            }
+        }
+        
+        if count == 0 {
+            addButton.isHidden = false
+            plusButton.isHidden = true
+            minusButton.isHidden = true
+            countLabel.isHidden = true
+            priceCountLabel.isHidden = true
         }
     }
 }

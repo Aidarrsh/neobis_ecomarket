@@ -27,6 +27,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        deleteValues()
+        save(value: 0)
         setupViews()
         setupConstraints()
         fetchData()
