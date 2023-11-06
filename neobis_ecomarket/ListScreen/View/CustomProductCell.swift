@@ -25,6 +25,7 @@ class CustomProductCell: UICollectionViewCell {
         let image = UIImageView()
         image.layer.cornerRadius = UIScreen.main.bounds.height * 12 / 812
         image.clipsToBounds = true
+        image.contentMode = .scaleAspectFill
         
         return image
     }()

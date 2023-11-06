@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import CoreData
+import Kingfisher
 
 class ListViewController: UIViewController {
     
@@ -27,10 +28,12 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        createItem()
-//        deleteValues()
-//        retrieveValues()
+        //        createItem()
+        //        deleteValues()
+        //        retrieveValues()
         setupView()
+        fetchData()
+        addTargets()
     }
     
     func setupView() {
@@ -46,36 +49,35 @@ class ListViewController: UIViewController {
         contentView.snp.makeConstraints{ make in
             make.edges.equalToSuperview()
         }
-        
+    }
+    
+    func addTargets(){
         contentView.backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        contentView.basketButton.addTarget(self, action: #selector(bagButtonPressed), for: .touchUpInside)
+    }
+    
+    func fetchData() {
+        let fetchRequest: NSFetchRequest<ProductItem> = ProductItem.fetchRequest()
+        
+        do {
+            productItems = try context.fetch(fetchRequest)
+            contentView.productCollectionView.reloadData()
+            productItems.sort { $0.title ?? "" < $1.title ?? "" }
+            
+        } catch {
+            print("Error fetching data: \(error)")
+        }
     }
     
     @objc func backButtonPressed() {
         dismiss(animated: true)
-    }
-    
-    func createItem(){
-        let newItem = ProductItem(context: context)
-        newItem.id = 1
-        newItem.name = "яблоки"
-        newItem.descr = "вкусные"
-        newItem.count = 5
-        newItem.price = 50
-        
-        do {
-            try context.save()
-            self.retrieveValues()
-        }
-        catch {
-            
-        }
     }
 }
 
 extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISheetPresentationControllerDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == contentView.productCollectionView{
-            return 10
+            return productItems.count
         } else {
             return 7
         }
@@ -114,7 +116,12 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCellReuseIdentifier", for: indexPath) as! CustomProductCell
-            cell.image.image = UIImage(named: "applesImage")
+            let product = productItems[indexPath.row]
+            if let photoURLString = product.image, let photoURL = URL(string: photoURLString) {
+                cell.image.kf.setImage(with: photoURL) { result in }
+            }
+            cell.titleLabel.text = product.title
+            cell.priceLabel.text = product.price
             cell.plusButton.tag = indexPath.row
             cell.plusButton.addTarget(self, action: #selector(plusButtonPressed(sender:)), for: .touchUpInside)
             cell.minusButton.tag = indexPath.row
@@ -152,7 +159,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let bottomSheetVC = ProductBottomSheet()
+        let bottomSheetVC = ProductBottomSheet(id: Int(productItems[indexPath.row].id))
         
         if let sheet = bottomSheetVC.sheetPresentationController {
             sheet.detents = [
@@ -194,6 +201,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
             if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
                 cell.productCount += 1
+                productItems[indexPath.row].count += 1
+                print(productItems[indexPath.row].count)
                 cell.countLabel.text = "\(cell.productCount)"
                 cell.addButton.isHidden = true
                 cell.plusButton.isHidden = false
@@ -213,6 +222,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
                 if cell.productCount < 50 {
                     cell.productCount += 1
+                    productItems[indexPath.row].count += 1
+                    print(productItems[indexPath.row].count)
                     cell.countLabel.text = "\(cell.productCount)"
                     if let priceText = cell.priceLabel.text, let price = Int(priceText) {
                         contentView.basketCount += price
@@ -229,6 +240,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
                 if cell.productCount > 0 {
                     cell.productCount -= 1
+                    productItems[indexPath.row].count -= 1
+                    print(productItems[indexPath.row].count)
                     cell.countLabel.text = "\(cell.productCount)"
                     if let priceText = cell.priceLabel.text, let price = Int(priceText) {
                         contentView.basketCount -= price
@@ -250,4 +263,19 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
+    @objc func bagButtonPressed() {
+        let vc = BagBottomSheet()
+        
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [
+                .custom { _ in
+                    return 500
+                }
+            ]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 30
+        }
+        
+        present(vc, animated: true, completion: nil)
+    }
 }

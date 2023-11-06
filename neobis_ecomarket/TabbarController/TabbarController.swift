@@ -25,7 +25,7 @@ class TabBarController: UITabBarController {
     
     func setupTabBar() {
         
-        let vc1 = MainViewController()
+        let vc1 = MainViewController(mainProtocol: MainViewModel())
         
         vc1.tabBarItem = UITabBarItem(title: "Главная", image: UIImage(named: "homeTab")?.withAlignmentRectInsets(.init(top: 10, left: 0, bottom: 0, right: 0)), tag: 0)
         

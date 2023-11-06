@@ -8,17 +8,31 @@
 import Foundation
 import UIKit
 import SnapKit
+import CoreData
 
 class ProductBottomSheet: UIViewController {
     
     var priceCount = 0
     var count = 0
+    let id: Int
+    var productItems = [ProductItem]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    init(id: Int) {
+        self.id = id
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     lazy var image: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "applesImage")
         image.layer.cornerRadius = UIScreen.main.bounds.height * 12 / 812
         image.clipsToBounds = true
+        image.contentMode = .scaleAspectFill
         
         return image
     }()
@@ -69,7 +83,7 @@ class ProductBottomSheet: UIViewController {
         button.setTitle("Добавить", for: .normal)
         button.titleLabel?.font = UIFont.interSemiBold(ofSize: 16)
         button.backgroundColor = UIColor(hex: "#75DB1B")
-        button.isHidden = true
+//        button.isHidden = true
         
         return button
     }()
@@ -79,6 +93,7 @@ class ProductBottomSheet: UIViewController {
         label.text = "\(priceCount) c"
         label.font = UIFont.ttBold(ofSize: 24)
         label.textColor = .black
+        label.isHidden = true
         
         return label
     }()
@@ -89,7 +104,7 @@ class ProductBottomSheet: UIViewController {
         button.setImage(UIImage(systemName: "minus"), for: .normal)
         button.backgroundColor = UIColor(hex: "#75DB1B")
         button.tintColor = UIColor.white
-//        button.isHidden = true
+        button.isHidden = true
         
         return button
     }()
@@ -100,7 +115,7 @@ class ProductBottomSheet: UIViewController {
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.backgroundColor = UIColor(hex: "#75DB1B")
         button.tintColor = UIColor.white
-//        button.isHidden = true
+        button.isHidden = true
         
         return button
     }()
@@ -111,6 +126,7 @@ class ProductBottomSheet: UIViewController {
         label.font = UIFont.ttMedium(ofSize: 18)
         label.textColor = .black
         label.textAlignment = .center
+        label.isHidden = true
         
         return label
     }()
@@ -120,6 +136,7 @@ class ProductBottomSheet: UIViewController {
         
         setupViews()
         setupConstraints()
+        fetchData()
     }
     
     func setupViews() {
@@ -193,6 +210,28 @@ class ProductBottomSheet: UIViewController {
             make.centerY.equalTo(minusButton.snp.centerY)
             make.leading.equalTo(minusButton.snp.trailing)
             make.trailing.equalTo(plusButton.snp.leading)
+        }
+    }
+    
+    func fetchData() {
+        let fetchRequest: NSFetchRequest<ProductItem> = ProductItem.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %d", id)
+        
+        do {
+            productItems = try context.fetch(fetchRequest)
+            productItems.sort { $0.title ?? "" < $1.title ?? "" }
+            
+            if let product = productItems.first {
+                if let photoURLString = product.image, let photoURL = URL(string: photoURLString) {
+                    image.kf.setImage(with: photoURL) { result in }
+                }
+                productLabel.text = product.title
+                priceLabel.text = product.price
+                descriptionLabel.text = product.descr
+            }
+            
+        } catch {
+            print("Error fetching data: \(error)")
         }
     }
 }

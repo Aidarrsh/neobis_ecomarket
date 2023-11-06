@@ -1,16 +1,16 @@
 //
-//  BagViewController.swift
+//  BagBottomScreen.swift
 //  neobis_ecomarket
 //
-//  Created by Айдар Шарипов on 2/11/23.
+//  Created by Айдар Шарипов on 4/11/23.
 //
 
+import Foundation
 import UIKit
 import SnapKit
 
-class BagViewController: UIViewController {
-    
-    private let contentView = BagView()
+class BagBottomSheet: UIViewController {
+    private let contentView = BagBottomView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +42,9 @@ class BagViewController: UIViewController {
     }
 }
 
-extension BagViewController: UITableViewDelegate, UITableViewDataSource {
+extension BagBottomSheet: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

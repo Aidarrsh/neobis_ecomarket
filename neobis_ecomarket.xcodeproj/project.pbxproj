@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1C9178A42AF50F6F003D84B1 /* extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */; };
+		1C9178A72AF627D1003D84B1 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178A62AF627D1003D84B1 /* OrderViewController.swift */; };
+		1C9178AA2AF627DC003D84B1 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178A92AF627DC003D84B1 /* OrderView.swift */; };
+		1C9178AD2AF62B04003D84B1 /* AnimatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178AC2AF62B03003D84B1 /* AnimatedTextField.swift */; };
+		1C9178AF2AF62FD9003D84B1 /* extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178AE2AF62FD9003D84B1 /* extension + String.swift */; };
+		1C9178B32AF6445F003D84B1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178B22AF6445F003D84B1 /* HistoryViewController.swift */; };
+		1C9178B52AF64469003D84B1 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178B42AF64469003D84B1 /* HistoryView.swift */; };
+		1C9178B82AF64CD9003D84B1 /* BagBottomScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178B72AF64CD9003D84B1 /* BagBottomScreenViewController.swift */; };
+		1C9178BB2AF64D28003D84B1 /* BagBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178BA2AF64D28003D84B1 /* BagBottomView.swift */; };
+		1C9178BE2AF79AA5003D84B1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178BD2AF79AA5003D84B1 /* MainViewModel.swift */; };
+		1C9178C12AF79B2A003D84B1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178C02AF79B2A003D84B1 /* Service.swift */; };
+		1C9178C42AF8E0CA003D84B1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9178C32AF8E0CA003D84B1 /* Kingfisher */; };
 		1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E222AF3AA1000457629 /* CoreDataStack.swift */; };
 		1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */; };
 		1CBF5FFD2AF3B57000647233 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF5FFC2AF3B57000647233 /* BagViewController.swift */; };
@@ -65,6 +76,16 @@
 
 /* Begin PBXFileReference section */
 		1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIImage.swift"; sourceTree = "<group>"; };
+		1C9178A62AF627D1003D84B1 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		1C9178A92AF627DC003D84B1 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		1C9178AC2AF62B03003D84B1 /* AnimatedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTextField.swift; sourceTree = "<group>"; };
+		1C9178AE2AF62FD9003D84B1 /* extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + String.swift"; sourceTree = "<group>"; };
+		1C9178B22AF6445F003D84B1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		1C9178B42AF64469003D84B1 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		1C9178B72AF64CD9003D84B1 /* BagBottomScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagBottomScreenViewController.swift; sourceTree = "<group>"; };
+		1C9178BA2AF64D28003D84B1 /* BagBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagBottomView.swift; sourceTree = "<group>"; };
+		1C9178BD2AF79AA5003D84B1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		1C9178C02AF79B2A003D84B1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		1CA29E222AF3AA1000457629 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIViewController.swift"; sourceTree = "<group>"; };
 		1CBF5FFC2AF3B57000647233 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9178C42AF8E0CA003D84B1 /* Kingfisher in Frameworks */,
 				1CCF7A372AEB7F3D00231B31 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +158,68 @@
 		1C9178A52AF627AD003D84B1 /* OrderScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1C9178A62AF627D1003D84B1 /* OrderViewController.swift */,
+				1C9178A82AF627D5003D84B1 /* View */,
 			);
 			path = OrderScreen;
+			sourceTree = "<group>";
+		};
+		1C9178A82AF627D5003D84B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C9178A92AF627DC003D84B1 /* OrderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C9178AB2AF62AF3003D84B1 /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				1C9178AC2AF62B03003D84B1 /* AnimatedTextField.swift */,
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		1C9178B02AF64444003D84B1 /* HistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1C9178B22AF6445F003D84B1 /* HistoryViewController.swift */,
+				1C9178B12AF64454003D84B1 /* View */,
+			);
+			path = HistoryScreen;
+			sourceTree = "<group>";
+		};
+		1C9178B12AF64454003D84B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C9178B42AF64469003D84B1 /* HistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C9178B62AF64CBB003D84B1 /* BagBottomScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1C9178B72AF64CD9003D84B1 /* BagBottomScreenViewController.swift */,
+				1C9178B92AF64D1B003D84B1 /* View */,
+			);
+			path = BagBottomScreen;
+			sourceTree = "<group>";
+		};
+		1C9178B92AF64D1B003D84B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C9178BA2AF64D28003D84B1 /* BagBottomView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C9178BF2AF79AB1003D84B1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1C9178C02AF79B2A003D84B1 /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		1CA29E212AF3AA0600457629 /* CoreData */ = {
@@ -185,15 +267,19 @@
 		1CCF7A1B2AEA54D800231B31 /* neobis_ecomarket */ = {
 			isa = PBXGroup;
 			children = (
+				1C9178B02AF64444003D84B1 /* HistoryScreen */,
 				1C9178A52AF627AD003D84B1 /* OrderScreen */,
 				1CA29E212AF3AA0600457629 /* CoreData */,
 				1CBF5FFB2AF3B55C00647233 /* BagScreen */,
 				1CCF7A942AF2869700231B31 /* InfoScreen */,
 				1CCF7A912AF27F1800231B31 /* TabbarController */,
-				1CCF7A782AF106C000231B31 /* ProductScreen */,
+				1CCF7A782AF106C000231B31 /* ProductBottomScreen */,
+				1C9178B62AF64CBB003D84B1 /* BagBottomScreen */,
 				1CCF7A6E2AEE424900231B31 /* ListScreen */,
 				1CCF7A312AEA608700231B31 /* MainScreen */,
 				1CCF7A302AEA604C00231B31 /* Delegates */,
+				1C9178BF2AF79AB1003D84B1 /* Service */,
+				1C9178AB2AF62AF3003D84B1 /* CustomTextField */,
 				1CCF7A382AEB7FCB00231B31 /* Extensions */,
 				1CCF7A6B2AEBC01F00231B31 /* Models */,
 				1CCF7A3B2AEB810700231B31 /* Fonts */,
@@ -219,6 +305,7 @@
 			children = (
 				1CCF7A202AEA54D800231B31 /* MainViewController.swift */,
 				1CCF7A342AEA8C6300231B31 /* View */,
+				1C9178BD2AF79AA5003D84B1 /* MainViewModel.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -240,6 +327,7 @@
 				1CCF7A672AEB834000231B31 /* extension + NSObject.swift */,
 				1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */,
 				1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */,
+				1C9178AE2AF62FD9003D84B1 /* extension + String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,12 +393,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1CCF7A782AF106C000231B31 /* ProductScreen */ = {
+		1CCF7A782AF106C000231B31 /* ProductBottomScreen */ = {
 			isa = PBXGroup;
 			children = (
 				1CCF7A792AF106DF00231B31 /* ProductBottomSheet.swift */,
 			);
-			path = ProductScreen;
+			path = ProductBottomScreen;
 			sourceTree = "<group>";
 		};
 		1CCF7A7B2AF246F200231B31 /* inter */ = {
@@ -372,6 +460,7 @@
 			name = neobis_ecomarket;
 			packageProductDependencies = (
 				1CCF7A362AEB7F3D00231B31 /* SnapKit */,
+				1C9178C32AF8E0CA003D84B1 /* Kingfisher */,
 			);
 			productName = neobis_ecomarket;
 			productReference = 1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */;
@@ -403,6 +492,7 @@
 			mainGroup = 1CCF7A102AEA54D800231B31;
 			packageReferences = (
 				1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */,
+				1C9178C22AF8E0CA003D84B1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 1CCF7A1A2AEA54D800231B31 /* Products */;
 			projectDirPath = "";
@@ -457,11 +547,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C9178B32AF6445F003D84B1 /* HistoryViewController.swift in Sources */,
 				1CCF7A7A2AF106DF00231B31 /* ProductBottomSheet.swift in Sources */,
+				1C9178AA2AF627DC003D84B1 /* OrderView.swift in Sources */,
+				1C9178B82AF64CD9003D84B1 /* BagBottomScreenViewController.swift in Sources */,
+				1C9178AF2AF62FD9003D84B1 /* extension + String.swift in Sources */,
 				1CCF7A932AF27F2D00231B31 /* TabbarController.swift in Sources */,
 				1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */,
 				1CCF7A3A2AEB7FDD00231B31 /* extension + UIColor.swift in Sources */,
+				1C9178BB2AF64D28003D84B1 /* BagBottomView.swift in Sources */,
+				1C9178B52AF64469003D84B1 /* HistoryView.swift in Sources */,
 				1CCF7A902AF266C500231B31 /* Model.xcdatamodeld in Sources */,
+				1C9178C12AF79B2A003D84B1 /* Service.swift in Sources */,
 				1C9178A42AF50F6F003D84B1 /* extension + UIImage.swift in Sources */,
 				1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */,
 				1CCF7A752AEE489200231B31 /* CustomListCell.swift in Sources */,
@@ -478,9 +575,12 @@
 				1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */,
 				1CCF7A732AEE427200231B31 /* ListView.swift in Sources */,
 				1CBF60022AF3BDBF00647233 /* CustomBagCell.swift in Sources */,
+				1C9178AD2AF62B04003D84B1 /* AnimatedTextField.swift in Sources */,
+				1C9178A72AF627D1003D84B1 /* OrderViewController.swift in Sources */,
 				1CCF7A6A2AEB842B00231B31 /* CustomMainViewCell.swift in Sources */,
 				1CCF7A992AF286F900231B31 /* InfoView.swift in Sources */,
 				1CCF7A682AEB834000231B31 /* extension + NSObject.swift in Sources */,
+				1C9178BE2AF79AA5003D84B1 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +792,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1C9178C22AF8E0CA003D84B1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Snapkit/Snapkit.git";
@@ -703,6 +811,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1C9178C32AF8E0CA003D84B1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C9178C22AF8E0CA003D84B1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		1CCF7A362AEB7F3D00231B31 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */;

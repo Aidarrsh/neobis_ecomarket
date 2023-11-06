@@ -7,15 +7,29 @@
 
 import UIKit
 import SnapKit
+import CoreData
 
 class MainViewController: UIViewController {
     
     let contentView = MainView()
+    var mainProtocol: MainProtocol
+    var productItems = [ProductItem]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    init(mainProtocol: MainProtocol) {
+        self.mainProtocol = mainProtocol
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        fetchData()
     }
     
     func setupViews() {
@@ -40,6 +54,25 @@ class MainViewController: UIViewController {
         Product(image: "teaImage", name: "\nЧай кофе"),
         Product(image: "milkImage", name: "Молочные продукты")
     ]
+    
+    func fetchData() {
+        if checkCount() == 0 {
+            
+            mainProtocol.fetchProducts() { products in
+                
+            }
+        }
+        let fetchRequest: NSFetchRequest<ProductItem> = ProductItem.fetchRequest()
+        
+        do {
+            productItems = try context.fetch(fetchRequest)
+            contentView.collectionView.reloadData()
+            productItems.sort { $0.title ?? "" < $1.title ?? "" }
+            
+        } catch {
+            print("Error fetching data: \(error)")
+        }
+    }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -51,7 +84,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCellReuseIdentifier", for: indexPath) as! CustomMainViewCell
         let product = models[indexPath.row]
-//        cell.button.setImage(UIImage(named: product.image), for: .normal)
         cell.image.image = UIImage(named: product.image)
         cell.titleLabel.text = product.name
         cell.button.tag = indexPath.row + 1
