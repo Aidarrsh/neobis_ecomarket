@@ -199,6 +199,10 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCellReuseIdentifier", for: indexPath) as! CustomProductCell
             if row == 0 {
+                cell.addButton.isHidden = false
+                cell.plusButton.isHidden = true
+                cell.minusButton.isHidden = true
+                cell.countLabel.isHidden = true
                 let product = items[indexPath.row]
                 if let photoURLString = product.image, let photoURL = URL(string: photoURLString) {
                     cell.image.kf.setImage(with: photoURL) { result in }
@@ -228,6 +232,10 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let filteredProducts = items.filter { $0.category == "\(row)" }
             
             if indexPath.row < filteredProducts.count {
+                cell.addButton.isHidden = false
+                cell.plusButton.isHidden = true
+                cell.minusButton.isHidden = true
+                cell.countLabel.isHidden = true
                 let product = filteredProducts[indexPath.row]
                 if let photoURLString = product.image, let photoURL = URL(string: photoURLString) {
                     cell.image.kf.setImage(with: photoURL) { result in }
@@ -330,38 +338,17 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func addButtonPressed(sender: UIButton) {
         let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
         if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
-            if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
-                productItems[indexPath.row].count += 1
-                cell.productCount = Int(productItems[indexPath.row].count)
-//                print(productItems[indexPath.row].count)
-                cell.countLabel.text = "\(cell.productCount)"
-                cell.addButton.isHidden = true
-                cell.plusButton.isHidden = false
-                cell.minusButton.isHidden = false
-                cell.countLabel.isHidden = false
-                if let priceText = cell.priceLabel.text, let price = Int(priceText) {
-//                    contentView.basketCount += price
-                    bag?.sumPrice += Int32(price)
-                    if let sumPrice = bag?.sumPrice {
-                        contentView.basketLabel.text = "Корзина \(sumPrice) c"
-                    } else {
-                        contentView.basketLabel.text = "Корзина"
-                    }
-
-                }
-            }
-        }
-    }
-    
-    @objc func plusButtonPressed(sender: UIButton) {
-        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
-        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
-            if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
-                if productItems[indexPath.row].count < 50 {
-                    productItems[indexPath.row].count += 1
-                    cell.productCount = Int(productItems[indexPath.row].count)
-//                    print(productItems[indexPath.row].count)
+            let selectedItem = items[indexPath.row]
+            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
+                matchingProductItem.count += 1
+                if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
+                    cell.productCount = Int(matchingProductItem.count)
                     cell.countLabel.text = "\(cell.productCount)"
+                    cell.addButton.isHidden = true
+                    cell.plusButton.isHidden = false
+                    cell.minusButton.isHidden = false
+                    cell.countLabel.isHidden = false
+                    
                     if let priceText = cell.priceLabel.text, let price = Int(priceText) {
                         bag?.sumPrice += Int32(price)
                         if let sumPrice = bag?.sumPrice {
@@ -369,7 +356,30 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         } else {
                             contentView.basketLabel.text = "Корзина"
                         }
+                    }
+                }
+            }
+        }
+    }
 
+    @objc func plusButtonPressed(sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
+        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
+            let selectedItem = items[indexPath.row]
+            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
+                if matchingProductItem.count < 50 {
+                    matchingProductItem.count += 1
+                    if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
+                        cell.productCount = Int(matchingProductItem.count)
+                        cell.countLabel.text = "\(cell.productCount)"
+                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
+                            bag?.sumPrice += Int32(price)
+                            if let sumPrice = bag?.sumPrice {
+                                contentView.basketLabel.text = "Корзина \(sumPrice) c"
+                            } else {
+                                contentView.basketLabel.text = "Корзина"
+                            }
+                        }
                     }
                 }
             }
@@ -379,36 +389,39 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     @objc func minusButtonPressed(sender: UIButton) {
         let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
         if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
-            if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
-                if productItems[indexPath.row].count > 0 {
-                    productItems[indexPath.row].count -= 1
-                    cell.productCount = Int(productItems[indexPath.row].count)
-//                    print(productItems[indexPath.row].count)
-                    cell.countLabel.text = "\(cell.productCount)"
-                    if let priceText = cell.priceLabel.text, let price = Int(priceText) {
-                        bag?.sumPrice -= Int32(price)
-                        if let sumPrice = bag?.sumPrice {
-                            contentView.basketLabel.text = "Корзина \(sumPrice) c"
-                        } else {
+            let selectedItem = items[indexPath.row]
+            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
+                if matchingProductItem.count > 0 {
+                    matchingProductItem.count -= 1
+                    if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
+                        cell.productCount = Int(matchingProductItem.count)
+                        cell.countLabel.text = "\(cell.productCount)"
+                        
+                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
+                            bag?.sumPrice -= Int32(price)
+                            if let sumPrice = bag?.sumPrice {
+                                contentView.basketLabel.text = "Корзина \(sumPrice) c"
+                            } else {
+                                contentView.basketLabel.text = "Корзина"
+                            }
+                        }
+                        
+                        if matchingProductItem.count == 0 {
+                            cell.addButton.isHidden = false
+                            cell.plusButton.isHidden = true
+                            cell.minusButton.isHidden = true
+                            cell.countLabel.isHidden = true
+                        }
+                        
+                        if bag?.sumPrice == 0 {
                             contentView.basketLabel.text = "Корзина"
                         }
                     }
                 }
-                
-                if productItems[indexPath.row].count == 0 {
-                    cell.addButton.isHidden = false
-                    cell.plusButton.isHidden = true
-                    cell.minusButton.isHidden = true
-                    cell.countLabel.isHidden = true
-                }
-                
-                if bag?.sumPrice == 0 {
-                    contentView.basketLabel.text = "Корзина"
-                }
             }
         }
     }
-    
+
     @objc func bagButtonPressed() {
         let vc = BagBottomSheet()
         

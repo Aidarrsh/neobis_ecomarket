@@ -318,7 +318,6 @@ class ProductBottomSheet: UIViewController {
             }
             if let product = productItems.first {
                 product.count += 1
-                print(product.count)
                 if let priceString = product.price, let price = Double(priceString) {
                     bag?.sumPrice += Int32(price)
                     priceCount = Int(Double(product.count) * price)

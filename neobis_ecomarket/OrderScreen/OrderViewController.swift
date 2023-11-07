@@ -11,12 +11,21 @@ import SnapKit
 class OrderViewController: UIViewController {
     
     var isButtonActive = false
-    
     private let contentView = OrderView()
+    var totalPrice: Int
+    
+    init(totalPrice: Int) {
+        self.totalPrice = totalPrice
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        contentView.price = totalPrice
         setupView()
         addTarges()
     }

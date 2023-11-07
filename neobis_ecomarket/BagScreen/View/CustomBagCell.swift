@@ -30,7 +30,7 @@ class CustomBagCell: UITableViewCell {
         image.image = UIImage(named: "dragonFruitImage")
         image.clipsToBounds = true
         image.layer.cornerRadius = UIScreen.main.bounds.height * 8 / 812
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         
         return image
     }()
@@ -286,6 +286,26 @@ class CustomBagCell: UITableViewCell {
             make.trailing.equalToSuperview()
             make.top.equalTo(deliverLabelCount.snp.bottom).offset(flexibleHeight(to: 8))
         }
+    }
+    
+    func unhideElements() {
+        backView.isHidden = false
+        image.isHidden = false
+        deleteButton.isHidden = false
+        titleLabel.isHidden = false
+        descriptionLabel.isHidden = false
+        priceLabel.isHidden = false
+        currencyLabel.isHidden = false
+        minusButton.isHidden = false
+        plusButton.isHidden = false
+        countLabel.isHidden = false
+        
+        sumLabel.isHidden = true
+        sumLabelCount.isHidden = true
+        deliverLabel.isHidden = true
+        deliverLabelCount.isHidden = true
+        totalLabel.isHidden = true
+        totalLabelCount.isHidden = true
     }
     
     func hideElements() {
