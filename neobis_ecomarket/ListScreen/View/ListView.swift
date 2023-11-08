@@ -94,6 +94,22 @@ class ListView: UIView {
         return label
     }()
     
+    lazy var alertImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "bagAlert")
+        image.isHidden = true
+        return image
+    }()
+    
+    lazy var alertLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Ничего не нашли"
+        label.font = UIFont.ttBold(ofSize: 18)
+        label.textColor = UIColor(hex: "#ACABAD")
+        label.isHidden = true
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -117,6 +133,8 @@ class ListView: UIView {
         addSubview(basketButton)
         addSubview(basketImage)
         addSubview(basketLabel)
+        addSubview(alertImage)
+        addSubview(alertLabel)
     }
     
     func setupConstraints() {
@@ -166,6 +184,18 @@ class ListView: UIView {
             make.top.bottom.equalTo(basketButton).inset(flexibleHeight(to: 12))
             make.leading.equalTo(basketImage.snp.trailing).offset(flexibleWidth(to: 4))
             make.trailing.equalTo(basketButton.snp.trailing).inset(flexibleWidth(to: 16))
+        }
+        
+        alertImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(flexibleHeight(to: 273))
+            make.centerX.equalToSuperview()
+            make.height.equalTo(flexibleHeight(to: 200))
+            make.width.equalTo(flexibleWidth(to: 163))
+        }
+        
+        alertLabel.snp.makeConstraints { make in
+            make.top.equalTo(alertImage.snp.bottom).offset(flexibleHeight(to: 28))
+            make.centerX.equalToSuperview()
         }
     }
 }

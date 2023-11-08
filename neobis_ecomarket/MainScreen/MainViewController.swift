@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        releaseProducts()
         deleteValues()
         save(value: 0)
         setupViews()
@@ -73,6 +74,12 @@ class MainViewController: UIViewController {
             
         } catch {
             print("Error fetching data: \(error)")
+        }
+    }
+    
+    func releaseProducts() {
+        for productItem in productItems {
+            productItem.count = 0
         }
     }
 }

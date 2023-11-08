@@ -12,10 +12,19 @@ class OrderViewController: UIViewController {
     
     var isButtonActive = false
     private let contentView = OrderView()
+    var blurEffectView: UIVisualEffectView?
     var totalPrice: Int
+    var items = [ProductItem]()
+    var orderNumber: Int?
+    var orderString: String?
+    var createdAt: String?
+    var bag: BagItem?
+    var orderProtocol: OrderProtocol
     
-    init(totalPrice: Int) {
+    init(orderProtocol: OrderProtocol,totalPrice: Int, items: [ProductItem]) {
+        self.orderProtocol = orderProtocol
         self.totalPrice = totalPrice
+        self.items = items
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,10 +54,70 @@ class OrderViewController: UIViewController {
     
     func addTarges() {
         contentView.backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        contentView.orderButton.addTarget(self, action: #selector(orderButtonPressed), for: .touchUpInside)
+    }
+
+    func presentAlert() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView?.frame = view.bounds
+        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView?.alpha = 0.6
+        view.addSubview(blurEffectView!)
+        if let orderNumber = orderNumber {
+            let orderNumberString = "\(orderNumber)"
+            orderString = orderNumberString
+        }
+
+        let alertView = OrderAlertView(orderText: orderString ?? "", timeText: createdAt ?? "")
+        view.addSubview(alertView)
+        alertView.quitButton.addTarget(self, action: #selector(quitButtonPressed), for: .touchUpInside)
+
+        alertView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(flexibleWidth(to: 343))
+            make.height.equalTo(flexibleHeight(to: 452))
+        }
+        
+        alertView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        UIView.animate(withDuration: 0.3) {
+            alertView.transform = .identity
+        }
     }
     
+    @objc func quitButtonPressed() {
+        deleteValues()
+        save(value: 0)
+        for product in items {
+            product.count = 0
+        }
+        view.window!.rootViewController?.dismiss(animated: true)
+    }
+
     @objc func backButtonPressed() {
         dismiss(animated: true)
+    }
+    
+    @objc func orderButtonPressed() {
+        if isButtonActive == true {
+            guard let phoneNumber = contentView.numberTextField.text else { return }
+            guard let address = contentView.adressTextField.text else { return }
+            guard let referencePoint = contentView.orientierTextField.text else { return }
+            guard let comments = contentView.commentTextField.text else { return }
+            
+            orderProtocol.order(products: items, phone_number: phoneNumber, adress: address, reference_point: referencePoint, comments: comments) { [weak self] result in
+                switch result {
+                case .success(let json):
+                    self?.orderNumber = json["order_number"] as? Int
+                    self?.createdAt = json["created_at"] as? String
+                    DispatchQueue.main.async {
+                        self?.presentAlert()
+                    }
+                case .failure(let error):
+                    print("Error ordering: \(error)")
+                }
+            }
+        }
     }
 }
 

@@ -26,3 +26,24 @@ struct ProductItemDTO: Decodable {
 struct Bag {
     let sum: Int
 }
+
+struct OrderResponse: Codable {
+    let order_number: Int
+    let phone_number: String
+    let address: String
+    let reference_point: String
+    let comments: String
+    let total_amount: String
+    let created_at: String
+}
+
+
+struct OrderData: Codable {
+    let order_number: Int
+    let phone_number: String
+    let address: String
+    let reference_point: String
+    let comments: String
+    let total_amount: String
+    let created_at: String
+}

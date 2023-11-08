@@ -31,6 +31,7 @@ class ListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        fetchData()
         contentView.productCollectionView.reloadData()
     }
     
@@ -138,7 +139,7 @@ class ListViewController: UIViewController {
     }
 }
 
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISheetPresentationControllerDelegate, ProductBottomSheetDelegate, UISearchBarDelegate {
+extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISheetPresentationControllerDelegate, ProductBottomSheetDelegate, BagBottomSheetDelegate, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
@@ -154,7 +155,30 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 items = productItems.filter { $0.category == "\(row)" }
             }
         }
+        if items.count == 0 {
+            contentView.alertImage.isHidden = false
+            contentView.alertLabel.isHidden = false
+        } else {
+            contentView.alertImage.isHidden = true
+            contentView.alertLabel.isHidden = true
+        }
         contentView.productCollectionView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+                cancelButton.setTitleColor(UIColor.black, for: .normal)
+                cancelButton.titleLabel?.font = UIFont.ttMedium(ofSize: 16)
+                cancelButton.setTitle("Отмена", for: .normal)
+            }
+        }
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -423,19 +447,21 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     @objc func bagButtonPressed() {
-        let vc = BagBottomSheet()
-        
-        if let sheet = vc.sheetPresentationController {
-            sheet.detents = [
-                .custom { _ in
-                    return 500
-                }
-            ]
-            sheet.prefersGrabberVisible = true
-            sheet.preferredCornerRadius = 30
+        if bag?.sumPrice != 0 {
+            let vc = BagBottomSheet()
+            vc.delegate = self
+            if let sheet = vc.sheetPresentationController {
+                sheet.detents = [
+                    .custom { _ in
+                        return 500
+                    }
+                ]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 30
+            }
+            
+            present(vc, animated: true, completion: nil)
         }
-        
-        present(vc, animated: true, completion: nil)
     }
     
     func bottomSheetDismissed() {
@@ -447,5 +473,22 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 contentView.basketLabel.text = "Корзина"
             }
         }
+    }
+    
+    func bottomBagSheetDismissed() {
+        self.contentView.productCollectionView.reloadData()
+        if bag?.sumPrice != 0 {
+            if let sumPrice = bag?.sumPrice {
+                contentView.basketLabel.text = "Корзина \(sumPrice) c"
+            } else {
+                contentView.basketLabel.text = "Корзина"
+            }
+        } else {
+            contentView.basketLabel.text = "Корзина"
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.contentView.searchBar.endEditing(true)
     }
 }

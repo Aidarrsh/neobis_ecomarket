@@ -49,6 +49,22 @@ class BagView: UIView {
         return button
     }()
     
+    lazy var alertImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "bagAlert-2")
+        
+        return image
+    }()
+    
+    lazy var alertLabel: UILabel = {
+        let label = UILabel()
+        label.text = "У вас нет заказа"
+        label.font = UIFont.ttBold(ofSize: 18)
+        label.textColor = UIColor(hex: "#ACABAD")
+
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -67,6 +83,8 @@ class BagView: UIView {
 
         addSubview(titleLabel)
         addSubview(clearButton)
+        addSubview(alertImage)
+        addSubview(alertLabel)
         addSubview(tableView)
         addSubview(orderButton)
     }
@@ -95,6 +113,18 @@ class BagView: UIView {
             make.top.equalToSuperview().inset(flexibleHeight(to: 652))
             make.leading.trailing.equalToSuperview().inset(flexibleWidth(to: 16))
             make.height.equalTo(flexibleHeight(to: 54))
+        }
+        
+        alertImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(flexibleHeight(to: 162))
+            make.centerX.equalToSuperview()
+            make.height.equalTo(flexibleHeight(to: 224))
+            make.width.equalTo(flexibleWidth(to: 200))
+        }
+        
+        alertLabel.snp.makeConstraints { make in
+            make.top.equalTo(alertImage.snp.bottom).offset(flexibleHeight(to: 16))
+            make.centerX.equalToSuperview()
         }
     }
 }

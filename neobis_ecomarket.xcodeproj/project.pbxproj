@@ -19,11 +19,15 @@
 		1C9178BE2AF79AA5003D84B1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178BD2AF79AA5003D84B1 /* MainViewModel.swift */; };
 		1C9178C12AF79B2A003D84B1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178C02AF79B2A003D84B1 /* Service.swift */; };
 		1C9178C42AF8E0CA003D84B1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1C9178C32AF8E0CA003D84B1 /* Kingfisher */; };
+		1C9BE7762AFA0E770036E33D /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BE7752AFA0E770036E33D /* OrderViewModel.swift */; };
+		1C9BE7782AFA1CC10036E33D /* CustomHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BE7772AFA1CC10036E33D /* CustomHistoryCell.swift */; };
+		1C9BE77A2AFA22A30036E33D /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BE7792AFA22A30036E33D /* HistoryViewModel.swift */; };
 		1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E222AF3AA1000457629 /* CoreDataStack.swift */; };
 		1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */; };
 		1CBF5FFD2AF3B57000647233 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF5FFC2AF3B57000647233 /* BagViewController.swift */; };
 		1CBF60002AF3B58E00647233 /* BagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF5FFF2AF3B58E00647233 /* BagView.swift */; };
 		1CBF60022AF3BDBF00647233 /* CustomBagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF60012AF3BDBF00647233 /* CustomBagCell.swift */; };
+		1CCCCBCD2AFB7E95008F33F1 /* OrderAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCCBCC2AFB7E95008F33F1 /* OrderAlertView.swift */; };
 		1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */; };
 		1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */; };
 		1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A202AEA54D800231B31 /* MainViewController.swift */; };
@@ -86,11 +90,15 @@
 		1C9178BA2AF64D28003D84B1 /* BagBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagBottomView.swift; sourceTree = "<group>"; };
 		1C9178BD2AF79AA5003D84B1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1C9178C02AF79B2A003D84B1 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1C9BE7752AFA0E770036E33D /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		1C9BE7772AFA1CC10036E33D /* CustomHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryCell.swift; sourceTree = "<group>"; };
+		1C9BE7792AFA22A30036E33D /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		1CA29E222AF3AA1000457629 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIViewController.swift"; sourceTree = "<group>"; };
 		1CBF5FFC2AF3B57000647233 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
 		1CBF5FFF2AF3B58E00647233 /* BagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagView.swift; sourceTree = "<group>"; };
 		1CBF60012AF3BDBF00647233 /* CustomBagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBagCell.swift; sourceTree = "<group>"; };
+		1CCCCBCC2AFB7E95008F33F1 /* OrderAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAlertView.swift; sourceTree = "<group>"; };
 		1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neobis_ecomarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				1C9178A62AF627D1003D84B1 /* OrderViewController.swift */,
+				1C9BE7752AFA0E770036E33D /* OrderViewModel.swift */,
 				1C9178A82AF627D5003D84B1 /* View */,
 			);
 			path = OrderScreen;
@@ -168,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				1C9178A92AF627DC003D84B1 /* OrderView.swift */,
+				1CCCCBCC2AFB7E95008F33F1 /* OrderAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				1C9178B22AF6445F003D84B1 /* HistoryViewController.swift */,
+				1C9BE7792AFA22A30036E33D /* HistoryViewModel.swift */,
 				1C9178B12AF64454003D84B1 /* View */,
 			);
 			path = HistoryScreen;
@@ -193,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				1C9178B42AF64469003D84B1 /* HistoryView.swift */,
+				1C9BE7772AFA1CC10036E33D /* CustomHistoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,7 +281,6 @@
 			children = (
 				1C9178B02AF64444003D84B1 /* HistoryScreen */,
 				1C9178A52AF627AD003D84B1 /* OrderScreen */,
-				1CA29E212AF3AA0600457629 /* CoreData */,
 				1CBF5FFB2AF3B55C00647233 /* BagScreen */,
 				1CCF7A942AF2869700231B31 /* InfoScreen */,
 				1CCF7A912AF27F1800231B31 /* TabbarController */,
@@ -277,6 +288,7 @@
 				1C9178B62AF64CBB003D84B1 /* BagBottomScreen */,
 				1CCF7A6E2AEE424900231B31 /* ListScreen */,
 				1CCF7A312AEA608700231B31 /* MainScreen */,
+				1CA29E212AF3AA0600457629 /* CoreData */,
 				1CCF7A302AEA604C00231B31 /* Delegates */,
 				1C9178BF2AF79AB1003D84B1 /* Service */,
 				1C9178AB2AF62AF3003D84B1 /* CustomTextField */,
@@ -549,6 +561,7 @@
 			files = (
 				1C9178B32AF6445F003D84B1 /* HistoryViewController.swift in Sources */,
 				1CCF7A7A2AF106DF00231B31 /* ProductBottomSheet.swift in Sources */,
+				1CCCCBCD2AFB7E95008F33F1 /* OrderAlertView.swift in Sources */,
 				1C9178AA2AF627DC003D84B1 /* OrderView.swift in Sources */,
 				1C9178B82AF64CD9003D84B1 /* BagBottomScreenViewController.swift in Sources */,
 				1C9178AF2AF62FD9003D84B1 /* extension + String.swift in Sources */,
@@ -559,16 +572,19 @@
 				1C9178B52AF64469003D84B1 /* HistoryView.swift in Sources */,
 				1CCF7A902AF266C500231B31 /* Model.xcdatamodeld in Sources */,
 				1C9178C12AF79B2A003D84B1 /* Service.swift in Sources */,
+				1C9BE7762AFA0E770036E33D /* OrderViewModel.swift in Sources */,
 				1C9178A42AF50F6F003D84B1 /* extension + UIImage.swift in Sources */,
 				1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */,
 				1CCF7A752AEE489200231B31 /* CustomListCell.swift in Sources */,
 				1CBF60002AF3B58E00647233 /* BagView.swift in Sources */,
 				1CBF5FFD2AF3B57000647233 /* BagViewController.swift in Sources */,
 				1CCF7A3F2AEB819E00231B31 /* extension + UIFont.swift in Sources */,
+				1C9BE7782AFA1CC10036E33D /* CustomHistoryCell.swift in Sources */,
 				1CCF7A332AEA8C5C00231B31 /* MainView.swift in Sources */,
 				1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */,
 				1CCF7A962AF286A400231B31 /* InfoViewController.swift in Sources */,
 				1CCF7A702AEE426400231B31 /* ListVewController.swift in Sources */,
+				1C9BE77A2AFA22A30036E33D /* HistoryViewModel.swift in Sources */,
 				1CCF7A772AEFC2EC00231B31 /* CustomProductCell.swift in Sources */,
 				1CCF7A6D2AEBC04500231B31 /* ProductModel.swift in Sources */,
 				1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */,

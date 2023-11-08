@@ -33,7 +33,7 @@ class TabBarController: UITabBarController {
         
         vc2.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(named: "bagTab")?.withAlignmentRectInsets(.init(top: 10, left: 0, bottom: 0, right: 0)), tag: 0)
         
-        let vc3 = UIViewController()
+        let vc3 = HistoryViewController(historyProtocol: HistoryViewModel())
 //
         vc3.tabBarItem = UITabBarItem(title: "История", image: UIImage(named: "historyTab")?.withAlignmentRectInsets(.init(top: 10, left: 0, bottom: 0, right: 0)), tag: 0)
         
