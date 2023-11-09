@@ -45,7 +45,6 @@ class OrderViewController: UIViewController {
     
     func checkConnection() {
         DispatchQueue.main.async {
-
             self.reachability.whenReachable = { reachability in
                 if reachability.connection == .wifi {
                     print("Reachable via WiFi")
@@ -137,6 +136,31 @@ class OrderViewController: UIViewController {
         }
     }
     
+    func enableOrderButton() {
+        contentView.orderButton.setTitleColor(.white, for: .normal)
+        contentView.orderButton.backgroundColor = UIColor(hex: "#75DB1B")
+        isButtonActive = true
+    }
+    
+    func disableOrderButton() {
+        contentView.orderButton.setTitleColor(UIColor(hex: "#ACABAD"), for: .normal)
+        contentView.orderButton.backgroundColor = UIColor(hex: "##F8F8F8")
+        isButtonActive = false
+    }
+    
+    func checkTextFields() {
+        let numberText = contentView.numberTextField.text ?? ""
+        let addressText = contentView.adressTextField.text ?? ""
+        let orientierText = contentView.orientierTextField.text ?? ""
+        let commentText = contentView.commentTextField.text ?? ""
+        
+        if !numberText.isEmpty && !addressText.isEmpty && !orientierText.isEmpty && !commentText.isEmpty {
+            enableOrderButton()
+        } else {
+            disableOrderButton()
+        }
+    }
+    
     @objc func quitButtonPressed() {
         deleteValues()
         save(value: 0)
@@ -193,30 +217,5 @@ extension OrderViewController: UITextFieldDelegate {
         }
         checkTextFields()
         return true
-    }
-    
-    func checkTextFields() {
-            let numberText = contentView.numberTextField.text ?? ""
-            let addressText = contentView.adressTextField.text ?? ""
-            let orientierText = contentView.orientierTextField.text ?? ""
-            let commentText = contentView.commentTextField.text ?? ""
-            
-            if !numberText.isEmpty && !addressText.isEmpty && !orientierText.isEmpty && !commentText.isEmpty {
-                enableOrderButton()
-            } else {
-                disableOrderButton()
-            }
-        }
-    
-    func enableOrderButton() {
-        contentView.orderButton.setTitleColor(.white, for: .normal)
-        contentView.orderButton.backgroundColor = UIColor(hex: "#75DB1B")
-        isButtonActive = true
-    }
-    
-    func disableOrderButton() {
-        contentView.orderButton.setTitleColor(UIColor(hex: "#ACABAD"), for: .normal)
-        contentView.orderButton.backgroundColor = UIColor(hex: "##F8F8F8")
-        isButtonActive = false
     }
 }

@@ -42,8 +42,6 @@ class ListView: UIView {
     lazy var sectionCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-//        layout.minimumInteritemSpacing = 12.0
-//        layout.minimumLineSpacing = 12.0
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.isScrollEnabled = true

@@ -62,12 +62,10 @@ class CustomListCell: UICollectionViewCell {
         
         roundView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-//            make.trailing.equalTo(productButton.snp.leading).offset(flexibleWidth(to: 12))
         }
         
         productButton.gestureRecognizers?.forEach(productButton.removeGestureRecognizer)
 
-        // Or remove the specific gesture recognizer
         if let longPressRecognizer = productButton.gestureRecognizers?.first(where: { $0 is UILongPressGestureRecognizer }) {
             productButton.removeGestureRecognizer(longPressRecognizer)
         }

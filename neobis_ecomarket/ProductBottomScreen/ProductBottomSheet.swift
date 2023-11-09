@@ -94,7 +94,6 @@ class ProductBottomSheet: UIViewController {
         button.setTitle("Добавить", for: .normal)
         button.titleLabel?.font = UIFont.interSemiBold(ofSize: 16)
         button.backgroundColor = UIColor(hex: "#75DB1B")
-//        button.isHidden = true
         
         return button
     }()
@@ -292,7 +291,6 @@ class ProductBottomSheet: UIViewController {
         priceCountLabel.isHidden = false
         if let product = productItems.first {
             product.count += 1
-//            print(product.count)
             
             if let priceString = product.price, let price = Double(priceString) {
                 bag?.sumPrice += Int32(price)

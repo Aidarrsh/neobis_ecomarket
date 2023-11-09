@@ -194,7 +194,6 @@ class CustomBagCell: UITableViewCell {
         contentView.addSubview(minusButton)
         contentView.addSubview(plusButton)
         contentView.addSubview(countLabel)
-        
         contentView.addSubview(sumLabelCount)
         contentView.addSubview(deliverLabel)
         contentView.addSubview(deliverLabelCount)

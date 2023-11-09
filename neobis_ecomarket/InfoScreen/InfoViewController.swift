@@ -107,7 +107,6 @@ class InfoViewController: UIViewController {
             UIApplication.shared.open(instagramURL)
         }
     }
-
     
     @objc func quitButtonPressed() {
         blurEffectView?.removeFromSuperview()

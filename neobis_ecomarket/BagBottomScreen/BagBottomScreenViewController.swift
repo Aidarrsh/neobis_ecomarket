@@ -70,8 +70,6 @@ class BagBottomSheet: UIViewController {
         } catch {
             print("Error fetching data: \(error)")
         }
-
-
         
         let fetchBagRequest: NSFetchRequest<BagItem> = BagItem.fetchRequest()
         
@@ -231,13 +229,8 @@ extension BagBottomSheet: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellReuseIdentifier", for: indexPath) as! CustomBagCell
         let totalRowsInSection = tableView.numberOfRows(inSection: indexPath.section)
-        if indexPath.row == totalRowsInSection - 1 {
-            cell.price = Int(bag?.sumPrice ?? 0)
-            cell.sumLabelCount.text = "\(cell.sum) c"
-            cell.totalLabelCount.text = "\(cell.sum + 150) c"
-            totalPrice = cell.sum + 150
-            cell.hideElements()
-        } else {
+        if indexPath.row != totalRowsInSection - 1 {
+            cell.unhideElements()
             let product = items[indexPath.row]
             if let photoURLString = product.image, let photoURL = URL(string: photoURLString) {
                 cell.image.kf.setImage(with: photoURL) { result in }
@@ -252,13 +245,19 @@ extension BagBottomSheet: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.text = product.title
             cell.productCount = Int(product.count)
             cell.countLabel.text = "\(product.count)"
-            cell.plusButton.tag = indexPath.row
-            cell.plusButton.addTarget(self, action: #selector(plusButtonPressed(sender:)), for: .touchUpInside)
-            cell.minusButton.tag = indexPath.row
-            cell.minusButton.addTarget(self, action: #selector(minusButtonPressed(sender:)), for: .touchUpInside)
-            cell.deleteButton.tag = indexPath.row
-            cell.deleteButton.addTarget(self, action: #selector(deleteButtonPressed(sender:)), for: .touchUpInside)
+        } else {
+            cell.price = Int(bag?.sumPrice ?? 0)
+            cell.sumLabelCount.text = "\(cell.sum) c"
+            cell.totalLabelCount.text = "\(cell.sum + 150) c"
+            totalPrice = cell.sum + 150
+            cell.hideElements()
         }
+        cell.plusButton.tag = indexPath.row
+        cell.plusButton.addTarget(self, action: #selector(plusButtonPressed(sender:)), for: .touchUpInside)
+        cell.minusButton.tag = indexPath.row
+        cell.minusButton.addTarget(self, action: #selector(minusButtonPressed(sender:)), for: .touchUpInside)
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteButtonPressed(sender:)), for: .touchUpInside)
         
         cell.selectionStyle = .none
         return cell
