@@ -172,7 +172,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cancelButton.titleLabel?.font = UIFont.ttMedium(ofSize: 16)
                 cancelButton.setTitle("Отмена", for: .normal)
             }
-        }
+        
         searchBar.setShowsCancelButton(true, animated: true)
     }
 

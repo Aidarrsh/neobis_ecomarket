@@ -27,12 +27,12 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        releaseProducts()
         deleteValues()
         save(value: 0)
         setupViews()
         setupConstraints()
         fetchData()
+        releaseProducts()
     }
     
     func setupViews() {
