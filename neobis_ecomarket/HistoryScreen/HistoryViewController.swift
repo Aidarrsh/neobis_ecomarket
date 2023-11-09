@@ -13,6 +13,7 @@ class HistoryViewController: UIViewController {
     private let contentView = HistoryView()
     var historyProtocol: HistoryProtocol
     var ordersList = [OrderData]()
+    var products = [OrderedProduct]()
     var sectionDates: [String]?
     var groupedOrders = [String: [OrderData]]()
 
@@ -108,7 +109,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         let order = ordersInSection.reversed()[indexPath.row]
         let doublePrice = Double(order.total_amount)
-        cell.priceLabel.text = "\(Int(doublePrice ?? 0))"
+        cell.priceLabel.text = "\(Int(doublePrice ?? 0) + 150)"
         let timeString = String(order.created_at.suffix(5))
         cell.timeLabel.text = timeString
         cell.titleLabel.text = "Заказ №\(order.order_number)"
@@ -137,6 +138,28 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return dateString
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let dateString = sectionDates?[indexPath.section],
+              let ordersInSection = groupedOrders[dateString] else { return }
+        let order = ordersInSection.reversed()[indexPath.row]
+        let price = (Int(Double(order.total_amount) ?? 0))
+        let bottomSheetVC = HistoryBottomSheet(orderNumber: order.order_number,
+                                               orderTime: order.created_at,
+                                               price: price,
+                                               orderedProducts: order.ordered_products)
+        if let sheet = bottomSheetVC.sheetPresentationController {
+            sheet.detents = [
+                .custom { _ in
+                    return UIScreen.main.bounds.height * 562 / 812
+                }, .large()
+            ]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 30
+        }
+        
+        present(bottomSheetVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

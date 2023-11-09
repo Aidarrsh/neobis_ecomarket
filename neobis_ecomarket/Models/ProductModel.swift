@@ -46,4 +46,11 @@ struct OrderData: Codable {
     let comments: String
     let total_amount: String
     let created_at: String
+    let delivery_cost: Int
+    let ordered_products: [OrderedProduct]
+}
+
+struct OrderedProduct: Codable {
+    let product: Int
+    let quantity: Int
 }

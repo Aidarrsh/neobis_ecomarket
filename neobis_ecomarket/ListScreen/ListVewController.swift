@@ -54,6 +54,8 @@ class ListViewController: UIViewController {
         contentView.searchBar.delegate = self
         view.addSubview(contentView)
         
+        contentView.searchBar.setValue("Отмена", forKey: "cancelButtonText")
+        
         contentView.snp.makeConstraints{ make in
             make.edges.equalToSuperview()
         }
@@ -83,10 +85,6 @@ class ListViewController: UIViewController {
         } catch {
             print("Error fetching data: \(error)")
         }
-    }
-    
-    @objc func backButtonPressed() {
-        dismiss(animated: true)
     }
     
     func chooseSection() {
@@ -137,9 +135,158 @@ class ListViewController: UIViewController {
             self.contentView.productCollectionView.reloadData()
         }
     }
+    
+    @objc func backButtonPressed() {
+        dismiss(animated: true)
+    }
+    
+    @objc func productButtonPressed(sender: UIButton) {
+        let indexPathRow = sender.tag
+
+        let totalSections = contentView.sectionCollectionView.numberOfSections
+        for section in 0..<totalSections {
+            let totalItems = contentView.sectionCollectionView.numberOfItems(inSection: section)
+            for item in 0..<totalItems {
+                if item == indexPathRow {
+                    if let cell = contentView.sectionCollectionView.cellForItem(at: IndexPath(item: item, section: section)) as? CustomListCell {
+                        cell.isButtonPressed()
+                        row = item
+                    }
+                } else {
+                    if let cell = contentView.sectionCollectionView.cellForItem(at: IndexPath(item: item, section: section)) as? CustomListCell {
+                        cell.unpressButton()
+                    }
+                }
+            }
+        }
+        chooseSection()
+        DispatchQueue.main.async {
+            self.contentView.productCollectionView.reloadData()
+        }
+    }
+    
+    @objc func addButtonPressed(sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
+        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
+            let selectedItem = items[indexPath.row]
+            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
+                matchingProductItem.count += 1
+                if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
+                    cell.productCount = Int(matchingProductItem.count)
+                    cell.countLabel.text = "\(cell.productCount)"
+                    cell.addButton.isHidden = true
+                    cell.plusButton.isHidden = false
+                    cell.minusButton.isHidden = false
+                    cell.countLabel.isHidden = false
+                    
+                    if let priceText = cell.priceLabel.text, let price = Int(priceText) {
+                        bag?.sumPrice += Int32(price)
+                        if let sumPrice = bag?.sumPrice {
+                            contentView.basketLabel.text = "Корзина \(sumPrice) c"
+                        } else {
+                            contentView.basketLabel.text = "Корзина"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @objc func plusButtonPressed(sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
+        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
+            let selectedItem = items[indexPath.row]
+            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
+                if matchingProductItem.count < 50 {
+                    matchingProductItem.count += 1
+                    if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
+                        cell.productCount = Int(matchingProductItem.count)
+                        cell.countLabel.text = "\(cell.productCount)"
+                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
+                            bag?.sumPrice += Int32(price)
+                            if let sumPrice = bag?.sumPrice {
+                                contentView.basketLabel.text = "Корзина \(sumPrice) c"
+                            } else {
+                                contentView.basketLabel.text = "Корзина"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func minusButtonPressed(sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
+        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
+            let selectedItem = items[indexPath.row]
+            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
+                if matchingProductItem.count > 0 {
+                    matchingProductItem.count -= 1
+                    if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
+                        cell.productCount = Int(matchingProductItem.count)
+                        cell.countLabel.text = "\(cell.productCount)"
+                        
+                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
+                            bag?.sumPrice -= Int32(price)
+                            if let sumPrice = bag?.sumPrice {
+                                contentView.basketLabel.text = "Корзина \(sumPrice) c"
+                            } else {
+                                contentView.basketLabel.text = "Корзина"
+                            }
+                        }
+                        
+                        if matchingProductItem.count == 0 {
+                            cell.addButton.isHidden = false
+                            cell.plusButton.isHidden = true
+                            cell.minusButton.isHidden = true
+                            cell.countLabel.isHidden = true
+                        }
+                        
+                        if bag?.sumPrice == 0 {
+                            contentView.basketLabel.text = "Корзина"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @objc func bagButtonPressed() {
+        if bag?.sumPrice != 0 {
+            let vc = BagBottomSheet()
+            vc.delegate = self
+            if let sheet = vc.sheetPresentationController {
+                sheet.detents = [
+                    .custom { _ in
+                        return 500
+                    }, .large()
+                ]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = 30
+            }
+            
+            present(vc, animated: true, completion: nil)
+        }
+    }
 }
 
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISheetPresentationControllerDelegate, ProductBottomSheetDelegate, BagBottomSheetDelegate, UISearchBarDelegate {
+extension ListViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        DispatchQueue.main.async {
+            if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+                cancelButton.setTitleColor(UIColor.black, for: .normal)
+                cancelButton.titleLabel?.font = UIFont.ttMedium(ofSize: 16)
+            }
+        }
+        
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
@@ -165,22 +312,12 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         contentView.productCollectionView.reloadData()
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
-                cancelButton.setTitleColor(UIColor.black, for: .normal)
-                cancelButton.titleLabel?.font = UIFont.ttMedium(ofSize: 16)
-                cancelButton.setTitle("Отмена", for: .normal)
-            }
-        }
-        searchBar.setShowsCancelButton(true, animated: true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.contentView.searchBar.endEditing(true)
     }
+}
 
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchBar.setShowsCancelButton(false, animated: true)
-    }
-    
+extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == contentView.productCollectionView{
             return items.count
@@ -333,136 +470,9 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             present(bottomSheetVC, animated: true, completion: nil)
         }
     }
-    
-    @objc func productButtonPressed(sender: UIButton) {
-        let indexPathRow = sender.tag
+}
 
-        let totalSections = contentView.sectionCollectionView.numberOfSections
-        for section in 0..<totalSections {
-            let totalItems = contentView.sectionCollectionView.numberOfItems(inSection: section)
-            for item in 0..<totalItems {
-                if item == indexPathRow {
-                    if let cell = contentView.sectionCollectionView.cellForItem(at: IndexPath(item: item, section: section)) as? CustomListCell {
-                        cell.isButtonPressed()
-                        row = item
-                    }
-                } else {
-                    if let cell = contentView.sectionCollectionView.cellForItem(at: IndexPath(item: item, section: section)) as? CustomListCell {
-                        cell.unpressButton()
-                    }
-                }
-            }
-        }
-        chooseSection()
-        DispatchQueue.main.async {
-            self.contentView.productCollectionView.reloadData()
-        }
-    }
-    
-    @objc func addButtonPressed(sender: UIButton) {
-        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
-        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
-            let selectedItem = items[indexPath.row]
-            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
-                matchingProductItem.count += 1
-                if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
-                    cell.productCount = Int(matchingProductItem.count)
-                    cell.countLabel.text = "\(cell.productCount)"
-                    cell.addButton.isHidden = true
-                    cell.plusButton.isHidden = false
-                    cell.minusButton.isHidden = false
-                    cell.countLabel.isHidden = false
-                    
-                    if let priceText = cell.priceLabel.text, let price = Int(priceText) {
-                        bag?.sumPrice += Int32(price)
-                        if let sumPrice = bag?.sumPrice {
-                            contentView.basketLabel.text = "Корзина \(sumPrice) c"
-                        } else {
-                            contentView.basketLabel.text = "Корзина"
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @objc func plusButtonPressed(sender: UIButton) {
-        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
-        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
-            let selectedItem = items[indexPath.row]
-            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
-                if matchingProductItem.count < 50 {
-                    matchingProductItem.count += 1
-                    if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
-                        cell.productCount = Int(matchingProductItem.count)
-                        cell.countLabel.text = "\(cell.productCount)"
-                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
-                            bag?.sumPrice += Int32(price)
-                            if let sumPrice = bag?.sumPrice {
-                                contentView.basketLabel.text = "Корзина \(sumPrice) c"
-                            } else {
-                                contentView.basketLabel.text = "Корзина"
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    @objc func minusButtonPressed(sender: UIButton) {
-        let point = sender.convert(CGPoint.zero, to: contentView.productCollectionView)
-        if let indexPath = contentView.productCollectionView.indexPathForItem(at: point) {
-            let selectedItem = items[indexPath.row]
-            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
-                if matchingProductItem.count > 0 {
-                    matchingProductItem.count -= 1
-                    if let cell = contentView.productCollectionView.cellForItem(at: indexPath) as? CustomProductCell {
-                        cell.productCount = Int(matchingProductItem.count)
-                        cell.countLabel.text = "\(cell.productCount)"
-                        
-                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
-                            bag?.sumPrice -= Int32(price)
-                            if let sumPrice = bag?.sumPrice {
-                                contentView.basketLabel.text = "Корзина \(sumPrice) c"
-                            } else {
-                                contentView.basketLabel.text = "Корзина"
-                            }
-                        }
-                        
-                        if matchingProductItem.count == 0 {
-                            cell.addButton.isHidden = false
-                            cell.plusButton.isHidden = true
-                            cell.minusButton.isHidden = true
-                            cell.countLabel.isHidden = true
-                        }
-                        
-                        if bag?.sumPrice == 0 {
-                            contentView.basketLabel.text = "Корзина"
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @objc func bagButtonPressed() {
-        if bag?.sumPrice != 0 {
-            let vc = BagBottomSheet()
-            vc.delegate = self
-            if let sheet = vc.sheetPresentationController {
-                sheet.detents = [
-                    .custom { _ in
-                        return 500
-                    }
-                ]
-                sheet.prefersGrabberVisible = true
-                sheet.preferredCornerRadius = 30
-            }
-            
-            present(vc, animated: true, completion: nil)
-        }
-    }
+extension ListViewController: UISheetPresentationControllerDelegate, ProductBottomSheetDelegate, BagBottomSheetDelegate {
     
     func bottomSheetDismissed() {
         self.contentView.productCollectionView.reloadData()
@@ -486,9 +496,5 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
             contentView.basketLabel.text = "Корзина"
         }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.contentView.searchBar.endEditing(true)
     }
 }
