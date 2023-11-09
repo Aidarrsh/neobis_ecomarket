@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Reachability
 
 class HistoryViewController: UIViewController {
     
@@ -16,6 +17,9 @@ class HistoryViewController: UIViewController {
     var products = [OrderedProduct]()
     var sectionDates: [String]?
     var groupedOrders = [String: [OrderData]]()
+    let alertView = MainAlertView()
+    var blurEffectView: UIVisualEffectView?
+    let reachability = try! Reachability()
 
     
     init(historyProtocol: HistoryProtocol) {
@@ -34,8 +38,57 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkConnection()
         setupView()
         configureDates()
+    }
+    
+    func checkConnection() {
+        DispatchQueue.main.async {
+
+            self.reachability.whenReachable = { reachability in
+                if reachability.connection == .wifi {
+                    print("Reachable via WiFi")
+                    self.blurEffectView?.removeFromSuperview()
+                    self.alertView.removeFromSuperview()
+                } else {
+                    print("Reachable via Cellular")
+                    self.blurEffectView?.removeFromSuperview()
+                    self.alertView.removeFromSuperview()
+                }
+            }
+            self.reachability.whenUnreachable = { _ in
+                self.presentAlert()
+            }
+
+            do {
+                try self.reachability.startNotifier()
+            } catch {
+                print("Unable to start notifier")
+            }
+        }
+    }
+    
+    func presentAlert() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView?.frame = view.bounds
+        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView?.alpha = 0.6
+        view.addSubview(blurEffectView!)
+        view.addSubview(alertView)
+        alertView.quitButton.addTarget(self, action: #selector(quitButtonPressed), for: .touchUpInside)
+
+        alertView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(flexibleWidth(to: 343))
+            make.height.equalTo(flexibleHeight(to: 458))
+        }
+        
+        alertView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        UIView.animate(withDuration: 0.3) {
+            self.alertView.transform = .identity
+        }
     }
     
     func fetchData() {
@@ -84,6 +137,11 @@ class HistoryViewController: UIViewController {
         DispatchQueue.main.async {
             self.contentView.tableView.reloadData()
         }
+    }
+    
+    @objc func quitButtonPressed() {
+        blurEffectView?.removeFromSuperview()
+        alertView.removeFromSuperview()
     }
 }
 

@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import CoreData
 import Kingfisher
+import Reachability
 
 class ListViewController: UIViewController {
     
@@ -20,6 +21,8 @@ class ListViewController: UIViewController {
     var productsCount: Int?
     var bag: BagItem?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let alertView = MainAlertView()
+    var blurEffectView: UIVisualEffectView?
     
     init(row: Int) {
         self.row = row
@@ -311,10 +314,6 @@ extension ListViewController: UISearchBarDelegate {
         }
         contentView.productCollectionView.reloadData()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.contentView.searchBar.endEditing(true)
-    }
 }
 
 extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -332,6 +331,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.productButton.tag = indexPath.row
             
             cell.productButton.addTarget(self, action: #selector(productButtonPressed(sender:)), for: .touchUpInside)
+            cell.unpressButton()
             
             switch indexPath.row {
             case 0:

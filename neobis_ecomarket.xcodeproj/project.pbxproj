@@ -30,6 +30,9 @@
 		1CCCCBCD2AFB7E95008F33F1 /* OrderAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCCBCC2AFB7E95008F33F1 /* OrderAlertView.swift */; };
 		1CCCCBD02AFCB894008F33F1 /* HistoryBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCCBCF2AFCB894008F33F1 /* HistoryBottomSheet.swift */; };
 		1CCCCBD22AFCDB83008F33F1 /* CustomHistoryBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCCBD12AFCDB83008F33F1 /* CustomHistoryBottomCell.swift */; };
+		1CCCCBD52AFCF89B008F33F1 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 1CCCCBD42AFCF89B008F33F1 /* Reachability */; };
+		1CCCCBD72AFCFD02008F33F1 /* MainAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCCBD62AFCFD02008F33F1 /* MainAlertView.swift */; };
+		1CCCCBD92AFD05C6008F33F1 /* BagAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCCBD82AFD05C6008F33F1 /* BagAlertView.swift */; };
 		1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */; };
 		1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */; };
 		1CCF7A212AEA54D800231B31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A202AEA54D800231B31 /* MainViewController.swift */; };
@@ -103,6 +106,8 @@
 		1CCCCBCC2AFB7E95008F33F1 /* OrderAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderAlertView.swift; sourceTree = "<group>"; };
 		1CCCCBCF2AFCB894008F33F1 /* HistoryBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryBottomSheet.swift; sourceTree = "<group>"; };
 		1CCCCBD12AFCDB83008F33F1 /* CustomHistoryBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryBottomCell.swift; sourceTree = "<group>"; };
+		1CCCCBD62AFCFD02008F33F1 /* MainAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAlertView.swift; sourceTree = "<group>"; };
+		1CCCCBD82AFD05C6008F33F1 /* BagAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagAlertView.swift; sourceTree = "<group>"; };
 		1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neobis_ecomarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCF7A1C2AEA54D800231B31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CCF7A1E2AEA54D800231B31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9178C42AF8E0CA003D84B1 /* Kingfisher in Frameworks */,
+				1CCCCBD52AFCF89B008F33F1 /* Reachability in Frameworks */,
 				1CCF7A372AEB7F3D00231B31 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +266,7 @@
 			children = (
 				1CBF5FFF2AF3B58E00647233 /* BagView.swift */,
 				1CBF60012AF3BDBF00647233 /* CustomBagCell.swift */,
+				1CCCCBD82AFD05C6008F33F1 /* BagAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,8 +337,8 @@
 			isa = PBXGroup;
 			children = (
 				1CCF7A202AEA54D800231B31 /* MainViewController.swift */,
-				1CCF7A342AEA8C6300231B31 /* View */,
 				1C9178BD2AF79AA5003D84B1 /* MainViewModel.swift */,
+				1CCF7A342AEA8C6300231B31 /* View */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -341,6 +348,7 @@
 			children = (
 				1CCF7A322AEA8C5C00231B31 /* MainView.swift */,
 				1CCF7A692AEB842B00231B31 /* CustomMainViewCell.swift */,
+				1CCCCBD62AFCFD02008F33F1 /* MainAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +495,7 @@
 			packageProductDependencies = (
 				1CCF7A362AEB7F3D00231B31 /* SnapKit */,
 				1C9178C32AF8E0CA003D84B1 /* Kingfisher */,
+				1CCCCBD42AFCF89B008F33F1 /* Reachability */,
 			);
 			productName = neobis_ecomarket;
 			productReference = 1CCF7A192AEA54D800231B31 /* neobis_ecomarket.app */;
@@ -519,6 +528,7 @@
 			packageReferences = (
 				1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */,
 				1C9178C22AF8E0CA003D84B1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = 1CCF7A1A2AEA54D800231B31 /* Products */;
 			projectDirPath = "";
@@ -573,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCCCBD92AFD05C6008F33F1 /* BagAlertView.swift in Sources */,
 				1C9178B32AF6445F003D84B1 /* HistoryViewController.swift in Sources */,
 				1CCF7A7A2AF106DF00231B31 /* ProductBottomSheet.swift in Sources */,
 				1CCCCBCD2AFB7E95008F33F1 /* OrderAlertView.swift in Sources */,
@@ -581,6 +592,7 @@
 				1C9178AF2AF62FD9003D84B1 /* extension + String.swift in Sources */,
 				1CCF7A932AF27F2D00231B31 /* TabbarController.swift in Sources */,
 				1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */,
+				1CCCCBD72AFCFD02008F33F1 /* MainAlertView.swift in Sources */,
 				1CCF7A3A2AEB7FDD00231B31 /* extension + UIColor.swift in Sources */,
 				1CCCCBD02AFCB894008F33F1 /* HistoryBottomSheet.swift in Sources */,
 				1C9178BB2AF64D28003D84B1 /* BagBottomView.swift in Sources */,
@@ -832,6 +844,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Snapkit/Snapkit.git";
@@ -847,6 +867,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C9178C22AF8E0CA003D84B1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		1CCCCBD42AFCF89B008F33F1 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
 		};
 		1CCF7A362AEB7F3D00231B31 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

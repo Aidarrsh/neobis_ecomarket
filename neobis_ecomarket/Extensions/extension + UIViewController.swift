@@ -8,8 +8,10 @@
 import Foundation
 import UIKit
 import CoreData
+import Reachability
 
 extension UIViewController {
+    
     func save(value: Int) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let context = appDelegate.persistentContainer.viewContext

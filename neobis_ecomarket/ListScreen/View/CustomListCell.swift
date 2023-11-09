@@ -11,7 +11,7 @@ import SnapKit
 
 class CustomListCell: UICollectionViewCell {
     
-    let buttonPressed = false
+    var buttonPressed = false
     
     lazy var roundView: UIView = {
         let view = UIView()

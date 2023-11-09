@@ -17,6 +17,8 @@ class BagViewController: UIViewController {
     var bag: BagItem?
     var totalPrice: Int?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let alertView = BagAlertView()
+    var blurEffectView: UIVisualEffectView?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -93,62 +95,37 @@ class BagViewController: UIViewController {
         }
     }
     
+    func presentAlert() {
+        let blurEffect = UIBlurEffect(style: .dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView?.frame = view.bounds
+        blurEffectView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView?.alpha = 0.6
+        view.addSubview(blurEffectView!)
+        view.addSubview(alertView)
+        alertView.quitButton.addTarget(self, action: #selector(quitButtonPressed), for: .touchUpInside)
+
+        alertView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(flexibleWidth(to: 343))
+            make.height.equalTo(flexibleHeight(to: 414))
+        }
+        
+        alertView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        UIView.animate(withDuration: 0.3) {
+            self.alertView.transform = .identity
+        }
+    }
+    
     @objc func orderButtonPressed() {
         if totalPrice ?? 0 > 450 {
             let vc = OrderViewController(orderProtocol: OrderViewModel(),totalPrice: totalPrice ?? 0, items: items)
             let navController = UINavigationController(rootViewController: vc)
             navController.modalPresentationStyle = .fullScreen
             self.present(navController, animated: true, completion: nil)
-        }
-    }
-}
-
-extension BagViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if items.count == 0 {
-            hideElements()
         } else {
-            contentView.tableView.isHidden = false
+            presentAlert()
         }
-        return items.count + 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellReuseIdentifier", for: indexPath) as! CustomBagCell
-        let totalRowsInSection = tableView.numberOfRows(inSection: indexPath.section)
-        if indexPath.row != totalRowsInSection - 1 {
-            cell.unhideElements()
-            let product = items[indexPath.row]
-            if let photoURLString = product.image, let photoURL = URL(string: photoURLString) {
-                cell.image.kf.setImage(with: photoURL) { result in }
-            }
-            if let priceString = product.price, let price = Double(priceString) {
-                let priceWithoutDecimal = Int(price)
-                cell.priceLabel.text = "\(priceWithoutDecimal)"
-                cell.descriptionLabel.text = "Цена \(priceWithoutDecimal) с за шт"
-            } else {
-                cell.priceLabel.text = "N/A"
-            }
-            cell.titleLabel.text = product.title
-            cell.productCount = Int(product.count)
-            cell.countLabel.text = "\(product.count)"
-        } else {
-            cell.price = Int(bag?.sumPrice ?? 0)
-            cell.sumLabelCount.text = "\(cell.sum) c"
-            cell.totalLabelCount.text = "\(cell.sum + 150) c"
-            totalPrice = cell.sum + 150
-            cell.hideElements()
-        }
-        cell.plusButton.tag = indexPath.row
-        cell.plusButton.addTarget(self, action: #selector(plusButtonPressed(sender:)), for: .touchUpInside)
-        cell.minusButton.tag = indexPath.row
-        cell.minusButton.addTarget(self, action: #selector(minusButtonPressed(sender:)), for: .touchUpInside)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 114
     }
     
     @objc func plusButtonPressed(sender: UIButton) {
@@ -212,6 +189,95 @@ extension BagViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
+    }
+    
+    @objc func deleteButtonPressed(sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: contentView.tableView)
+        if let indexPath = contentView.tableView.indexPathForRow(at: point) {
+            let selectedItem = items[indexPath.row]
+            if let matchingProductItem = productItems.first(where: { $0.id == selectedItem.id }) {
+                
+                if let cell = contentView.tableView.cellForRow(at: indexPath) as? CustomBagCell {
+                    cell.productCount = Int(matchingProductItem.count)
+                    cell.countLabel.text = "\(cell.productCount)"
+                    
+                    if let price = Double(selectedItem.price ?? "0") {
+                        let priceWithoutDecimal = Int(price)
+                        let total = priceWithoutDecimal * Int(matchingProductItem.count)
+                        bag?.sumPrice -= Int32(total)
+                        
+                    }
+                    
+                    if let indexPath = contentView.tableView.indexPath(for: cell) {
+                        items.remove(at: indexPath.row)
+                        contentView.tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                    
+                    matchingProductItem.count = 0
+                    
+                    DispatchQueue.main.async {
+                        self.contentView.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func quitButtonPressed() {
+        blurEffectView?.removeFromSuperview()
+        alertView.removeFromSuperview()
+    }
+}
+
+extension BagViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if items.count == 0 {
+            hideElements()
+        } else {
+            contentView.tableView.isHidden = false
+        }
+        return items.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCellReuseIdentifier", for: indexPath) as! CustomBagCell
+        let totalRowsInSection = tableView.numberOfRows(inSection: indexPath.section)
+        if indexPath.row != totalRowsInSection - 1 {
+            cell.unhideElements()
+            let product = items[indexPath.row]
+            if let photoURLString = product.image, let photoURL = URL(string: photoURLString) {
+                cell.image.kf.setImage(with: photoURL) { result in }
+            }
+            if let priceString = product.price, let price = Double(priceString) {
+                let priceWithoutDecimal = Int(price)
+                cell.priceLabel.text = "\(priceWithoutDecimal)"
+                cell.descriptionLabel.text = "Цена \(priceWithoutDecimal) с за шт"
+            } else {
+                cell.priceLabel.text = "N/A"
+            }
+            cell.titleLabel.text = product.title
+            cell.productCount = Int(product.count)
+            cell.countLabel.text = "\(product.count)"
+        } else {
+            cell.price = Int(bag?.sumPrice ?? 0)
+            cell.sumLabelCount.text = "\(cell.sum) c"
+            cell.totalLabelCount.text = "\(cell.sum + 150) c"
+            totalPrice = cell.sum + 150
+            cell.hideElements()
+        }
+        cell.plusButton.tag = indexPath.row
+        cell.plusButton.addTarget(self, action: #selector(plusButtonPressed(sender:)), for: .touchUpInside)
+        cell.minusButton.tag = indexPath.row
+        cell.minusButton.addTarget(self, action: #selector(minusButtonPressed(sender:)), for: .touchUpInside)
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteButtonPressed(sender:)), for: .touchUpInside)
+        
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 114
     }
     
     @objc func clearButtonPressed() {
