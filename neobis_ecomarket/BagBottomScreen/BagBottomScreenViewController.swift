@@ -126,8 +126,9 @@ class BagBottomSheet: UIViewController {
                     if let cell = contentView.tableView.cellForRow(at: indexPath) as? CustomBagCell {
                         cell.productCount = Int(matchingProductItem.count)
                         cell.countLabel.text = "\(cell.productCount)"
-                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
-                            bag?.sumPrice += Int32(price)
+                        if let priceString = matchingProductItem.price, let price = Double(priceString) {
+                            let priceWithoutDecimal = Int(price)
+                            bag?.sumPrice += Int32(priceWithoutDecimal)
                             DispatchQueue.main.async {
                                 self.contentView.tableView.reloadData()
                             }
@@ -150,13 +151,20 @@ class BagBottomSheet: UIViewController {
                     if let cell = contentView.tableView.cellForRow(at: indexPath) as? CustomBagCell {
                         cell.productCount = Int(matchingProductItem.count)
                         cell.countLabel.text = "\(cell.productCount)"
-                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
-                            bag?.sumPrice -= Int32(price)
+                        if let priceString = matchingProductItem.price, let price = Double(priceString) {
+                            let priceWithoutDecimal = Int(price)
+                            bag?.sumPrice -= Int32(priceWithoutDecimal)
                             DispatchQueue.main.async {
                                 self.contentView.tableView.reloadData()
                             }
                         }
-                        
+//                        if let priceText = cell.priceLabel.text, let price = Int(priceText) {
+//                            bag?.sumPrice -= Int32(price)
+//                            DispatchQueue.main.async {
+//                                self.contentView.tableView.reloadData()
+//                            }
+//                        }
+//                        
                         if let price = Double(selectedItem.price ?? "0") {
                             let priceWithoutDecimal = Int(price)
                             let total = priceWithoutDecimal * Int(matchingProductItem.count)
@@ -237,7 +245,7 @@ extension BagBottomSheet: UITableViewDelegate, UITableViewDataSource {
             }
             if let priceString = product.price, let price = Double(priceString) {
                 let priceWithoutDecimal = Int(price)
-                cell.priceLabel.text = "\(priceWithoutDecimal)"
+                cell.priceLabel.text = "\(priceWithoutDecimal * Int(product.count))"
                 cell.descriptionLabel.text = "Цена \(priceWithoutDecimal) с за шт"
             } else {
                 cell.priceLabel.text = "N/A"
