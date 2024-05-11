@@ -39,16 +39,16 @@ extension UIViewController {
             do {
                 let results = try context.fetch(fetchRequest)
                 
-                for result in results {
-                    print(result.id)
-                    print(result.title)
-                    print(result.descr)
-                    print(result.category)
-                    print(result.image)
-                    print(result.price)
-                    print(result.quantity)
-                    print("\n")
-                }
+//                for result in results {
+//                    print(result.id)
+//                    print(result.title)
+//                    print(result.descr)
+//                    print(result.category)
+//                    print(result.image)
+//                    print(result.price)
+//                    print(result.quantity)
+//                    print("\n")
+//                }
             } catch {
                 print("error")
             }

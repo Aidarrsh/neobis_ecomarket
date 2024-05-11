@@ -33,7 +33,8 @@ class MainViewModel: MainProtocol {
                 do {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .iso8601
-                    let productDTOs = try decoder.decode([ProductItemDTO].self, from: data)
+                    let response = try decoder.decode(ProductListResponse.self, from: data)
+                    let productDTOs = response.results
                     
                     var products = [ProductItem]()
                     

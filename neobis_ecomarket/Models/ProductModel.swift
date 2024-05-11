@@ -13,6 +13,14 @@ struct Product {
     var name : String
 }
 
+struct ProductListResponse: Decodable {
+    let page: Int
+    let count1: Int
+    let next: String?
+    let previous: String?
+    let results: [ProductItemDTO]
+}
+
 struct ProductItemDTO: Decodable {
     let id: Int
     let title: String

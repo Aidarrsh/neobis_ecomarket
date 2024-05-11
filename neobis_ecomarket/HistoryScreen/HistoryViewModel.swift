@@ -28,20 +28,27 @@ class HistoryViewModel: HistoryProtocol {
         apiService.get(endpoint: "order-list/") { result in
             switch result {
             case .success(let data):
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
                 do {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .iso8601
-                    
                     let orders = try decoder.decode([OrderData].self, from: data)
                     completion(orders)
+                } catch DecodingError.keyNotFound(let key, let context) {
+                    print("Failed to decode due to missing key '\(key.stringValue)' not found – \(context.debugDescription)")
+                } catch DecodingError.typeMismatch(_, let context) {
+                    print("Failed to decode due to type mismatch – \(context.debugDescription)")
+                } catch DecodingError.valueNotFound(let type, let context) {
+                    print("Failed to decode due to missing \(type) value – \(context.debugDescription)")
+                } catch DecodingError.dataCorrupted(let context) {
+                    print("Failed to decode due to data being corrupted or the wrong format – \(context.debugDescription)")
                 } catch {
-                    print("Error decoding JSON:", error)
-                    completion([])
+                    print("Failed to decode JSON: \(error.localizedDescription)")
                 }
             case .failure(let error):
-                print("API request failed:", error)
-                completion([])
+                print("API request failed: \(error.localizedDescription)")
             }
         }
     }
+
 }

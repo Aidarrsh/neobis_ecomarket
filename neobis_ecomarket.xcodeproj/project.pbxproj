@@ -81,6 +81,7 @@
 		1CCF7A932AF27F2D00231B31 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A922AF27F2D00231B31 /* TabbarController.swift */; };
 		1CCF7A962AF286A400231B31 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A952AF286A400231B31 /* InfoViewController.swift */; };
 		1CCF7A992AF286F900231B31 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A982AF286F900231B31 /* InfoView.swift */; };
+		42683660F385811F69439823 /* Pods_neobis_ecomarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7B9777CEDDE38BB95FC921 /* Pods_neobis_ecomarket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +158,9 @@
 		1CCF7A922AF27F2D00231B31 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		1CCF7A952AF286A400231B31 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		1CCF7A982AF286F900231B31 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		1E7B9777CEDDE38BB95FC921 /* Pods_neobis_ecomarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neobis_ecomarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6147DA0C0334854F249ED8 /* Pods-neobis_ecomarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neobis_ecomarket.debug.xcconfig"; path = "Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket.debug.xcconfig"; sourceTree = "<group>"; };
+		DC9AAE2C311C64FBBD074338 /* Pods-neobis_ecomarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neobis_ecomarket.release.xcconfig"; path = "Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 				1C9178C42AF8E0CA003D84B1 /* Kingfisher in Frameworks */,
 				1CCCCBD52AFCF89B008F33F1 /* Reachability in Frameworks */,
 				1CCF7A372AEB7F3D00231B31 /* SnapKit in Frameworks */,
+				42683660F385811F69439823 /* Pods_neobis_ecomarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +290,8 @@
 			children = (
 				1CCF7A1B2AEA54D800231B31 /* neobis_ecomarket */,
 				1CCF7A1A2AEA54D800231B31 /* Products */,
+				D6BCC9B8DA8FB834A7A10173 /* Pods */,
+				E72F522EA38392ABBC896BA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -476,6 +483,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D6BCC9B8DA8FB834A7A10173 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E6147DA0C0334854F249ED8 /* Pods-neobis_ecomarket.debug.xcconfig */,
+				DC9AAE2C311C64FBBD074338 /* Pods-neobis_ecomarket.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E72F522EA38392ABBC896BA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E7B9777CEDDE38BB95FC921 /* Pods_neobis_ecomarket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -483,6 +508,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CCF7A2D2AEA54D900231B31 /* Build configuration list for PBXNativeTarget "neobis_ecomarket" */;
 			buildPhases = (
+				A1A599FFC0D97F19AFB63B67 /* [CP] Check Pods Manifest.lock */,
 				1CCF7A152AEA54D800231B31 /* Sources */,
 				1CCF7A162AEA54D800231B31 /* Frameworks */,
 				1CCF7A172AEA54D800231B31 /* Resources */,
@@ -526,9 +552,9 @@
 			);
 			mainGroup = 1CCF7A102AEA54D800231B31;
 			packageReferences = (
-				1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */,
+				1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit.git" */,
 				1C9178C22AF8E0CA003D84B1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */,
+				1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
 			);
 			productRefGroup = 1CCF7A1A2AEA54D800231B31 /* Products */;
 			projectDirPath = "";
@@ -577,6 +603,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A1A599FFC0D97F19AFB63B67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-neobis_ecomarket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1CCF7A152AEA54D800231B31 /* Sources */ = {
@@ -758,6 +809,7 @@
 		};
 		1CCF7A2E2AEA54D900231B31 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E6147DA0C0334854F249ED8 /* Pods-neobis_ecomarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -786,6 +838,7 @@
 		};
 		1CCF7A2F2AEA54D900231B31 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC9AAE2C311C64FBBD074338 /* Pods-neobis_ecomarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -844,7 +897,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+		1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
 			requirement = {
@@ -852,7 +905,7 @@
 				kind = branch;
 			};
 		};
-		1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */ = {
+		1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Snapkit/Snapkit.git";
 			requirement = {
@@ -870,12 +923,12 @@
 		};
 		1CCCCBD42AFCF89B008F33F1 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */;
+			package = 1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
 			productName = Reachability;
 		};
 		1CCF7A362AEB7F3D00231B31 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */;
+			package = 1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit.git" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

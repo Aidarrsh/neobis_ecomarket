@@ -38,8 +38,8 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkConnection()
         setupView()
+        checkConnection()
         configureDates()
     }
     
@@ -92,7 +92,8 @@ class HistoryViewController: UIViewController {
     }
     
     func fetchData() {
-        historyProtocol.fetchOrders() { orders in
+        historyProtocol.fetchOrders() { [weak self] orders in
+            guard let self = self else { return }
             self.ordersList = orders
             DispatchQueue.main.async {
                 self.contentView.tableView.reloadData()
@@ -100,6 +101,7 @@ class HistoryViewController: UIViewController {
             }
         }
     }
+
     
     func setupView() {
         contentView.tableView.delegate = self
@@ -116,16 +118,19 @@ class HistoryViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
+        groupedOrders = [:]
         for order in ordersList {
             let dateComponents = order.created_at.split(separator: " ")[0]
             let dateString = String(dateComponents)
             
-            if groupedOrders[dateString] != nil {
-                groupedOrders[dateString]?.append(order)
+            if var existingGroup = groupedOrders[dateString] {
+                existingGroup.append(order)
+                groupedOrders[dateString] = existingGroup
             } else {
                 groupedOrders[dateString] = [order]
             }
         }
+        sectionDates = Array(groupedOrders.keys).sorted(by: >)
         DispatchQueue.main.async {
             self.contentView.tableView.reloadData()
         }
@@ -133,6 +138,7 @@ class HistoryViewController: UIViewController {
 
     func configureDates() {
         groupOrdersByDate()
+        sectionDates?.removeAll()
         sectionDates = Array(groupedOrders.keys).sorted(by: >)
         DispatchQueue.main.async {
             self.contentView.tableView.reloadData()
