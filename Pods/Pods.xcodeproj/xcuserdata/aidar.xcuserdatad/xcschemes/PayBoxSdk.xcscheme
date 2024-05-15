@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "53EC4B5D1362CB090089FB672D60D3FC"
-               BuildableName = "Pods_neobis_ecomarket.framework"
-               BlueprintName = "Pods-neobis_ecomarket"
+               BlueprintIdentifier = "34FE93D6BF04BCC6C7BF3822B8D0E1AD"
+               BuildableName = "PayBoxSdk.framework"
+               BlueprintName = "PayBoxSdk"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

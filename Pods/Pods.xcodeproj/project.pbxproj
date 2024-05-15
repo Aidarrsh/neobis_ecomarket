@@ -7,37 +7,131 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1BC7F4C978913943BCBD172BE1B332CD /* Pods-neobis_ecomarket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C64F5EF7023562C9D07FCB903F7974 /* Pods-neobis_ecomarket-dummy.m */; };
-		6BE64B96FE500AD236E223774E289227 /* Pods-neobis_ecomarket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8660AC46262C59A3F53A334CF6A3FD81 /* Pods-neobis_ecomarket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93297F894824ABF7307813D1B94E7CF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		27D1ECE98A3863D2A8DD3BA1F9CC89C0 /* PayBoxSdk-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 169BE868AF3D1C37028266FD85945AC7 /* PayBoxSdk-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		305C2F91066E32402EBF5F427A9F0249 /* Pods-neobis_ecomarket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 924F0615F5980FDDD8E04F0959453C2D /* Pods-neobis_ecomarket-dummy.m */; };
+		3523615E85CFF4D35711D625FFAF4EEC /* PayboxSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A411239272F69512FB0E4270A18F5E75 /* PayboxSdk.swift */; };
+		36C9C44895B9877E2663EA4DA889F1AF /* PayBoxSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B54065495B0FAFAB099D62E74FB4329 /* PayBoxSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A62555826EF8260F81355571D10E65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		48B423D1F3196FB7C28196B5B424916F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		5E94A7748C58149E13EC7AD0B4E8B2DF /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424B33E4CEEAD1A69203E10F449D335 /* ApiProtocol.swift */; };
+		72BE1134E57BE2A51B395F7033F1195B /* Pods-neobis_ecomarket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5E06AA43561B82B93541DC11B78E54 /* Pods-neobis_ecomarket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D454C09CA91C1654761B002AE4E334A /* SignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AD4E8939036AD48FB43E20DC851520 /* SignHelper.swift */; };
+		8A9F1ABF1FCFB3F700DF65E5873DAB07 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD7A3B633704350EB05EEFD89C63D97 /* ApiHelper.swift */; };
+		949DDA2C38B2D99FDB2FD3E1BCB1C6E1 /* ConfigurationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8104EA4A6284B6BB56BD47880C2D3E54 /* ConfigurationImpl.swift */; };
+		9E204F8E578EE1A4B8ED85EDAB754777 /* PayBoxSdk-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E5CA7C1DD4041F9569DE355F57E61C /* PayBoxSdk-dummy.m */; };
+		A74D03B5AA2CA2723CEF79E7A9B90345 /* ConfigurationPotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABC1C2C2A5F6C1075BBEC3925855024 /* ConfigurationPotocol.swift */; };
+		D306828C5CD55FB4125DDE9D6E050A6B /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6116A06DB45954D11821ED691FB946 /* PaymentView.swift */; };
+		E2E83253674430F8E0414652B7D5F22C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CB0AC4F8F64391F53E4B563E3E4EF /* Constants.swift */; };
+		F7EDF028B8D783BCB0B4F69D3A217BA4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6EF1CB2E7CE6675B441A716C9B7C9 /* Models.swift */; };
+		FFB99C9AFFCBAB0D1CFCFA2BF2147881 /* PayboxSdkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519AEFA7B76FF4128A779CFC0701B405 /* PayboxSdkProtocol.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9396F9CFB252302F1EF1F8B9E871AFC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34FE93D6BF04BCC6C7BF3822B8D0E1AD;
+			remoteInfo = PayBoxSdk;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		09E14D5DFB0A22766B529E412D3B98E3 /* Pods-neobis_ecomarket */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-neobis_ecomarket"; path = Pods_neobis_ecomarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		17E9CD7907C449FAC83BF69864CB49EC /* Pods-neobis_ecomarket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-neobis_ecomarket.modulemap"; sourceTree = "<group>"; };
-		41C64F5EF7023562C9D07FCB903F7974 /* Pods-neobis_ecomarket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-neobis_ecomarket-dummy.m"; sourceTree = "<group>"; };
-		5D24732D2807CFC213C0E5FB46F58045 /* Pods-neobis_ecomarket-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-neobis_ecomarket-acknowledgements.markdown"; sourceTree = "<group>"; };
+		09E14D5DFB0A22766B529E412D3B98E3 /* Pods_neobis_ecomarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neobis_ecomarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B54065495B0FAFAB099D62E74FB4329 /* PayBoxSdk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PayBoxSdk.h; path = PayBoxSdk/PayBoxSdk.h; sourceTree = "<group>"; };
+		169BE868AF3D1C37028266FD85945AC7 /* PayBoxSdk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PayBoxSdk-umbrella.h"; sourceTree = "<group>"; };
+		1968B27807C896360E49CAF68FC08A44 /* Pods-neobis_ecomarket-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-neobis_ecomarket-Info.plist"; sourceTree = "<group>"; };
+		3B3CD81FA872BB18766F8E1659EBB53B /* PayBoxSdk-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PayBoxSdk-Info.plist"; sourceTree = "<group>"; };
+		3DA839E6A9C986A5F35BA92DDD0F1DF9 /* Pods-neobis_ecomarket-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-neobis_ecomarket-frameworks.sh"; sourceTree = "<group>"; };
+		4117D694C74D41840BF946D821D06EEA /* PayBoxSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PayBoxSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EC5CFC5989A2BB71EB5790800D2E5CB /* Pods-neobis_ecomarket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-neobis_ecomarket.modulemap"; sourceTree = "<group>"; };
+		519AEFA7B76FF4128A779CFC0701B405 /* PayboxSdkProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PayboxSdkProtocol.swift; path = PayBoxSdk/PayboxSdkProtocol.swift; sourceTree = "<group>"; };
+		5AE4D55B5FDE548B5EC3FA56526B8800 /* Pods-neobis_ecomarket-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-neobis_ecomarket-acknowledgements.plist"; sourceTree = "<group>"; };
+		67AD4E8939036AD48FB43E20DC851520 /* SignHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SignHelper.swift; path = PayBoxSdk/api/SignHelper.swift; sourceTree = "<group>"; };
+		69E5CA7C1DD4041F9569DE355F57E61C /* PayBoxSdk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PayBoxSdk-dummy.m"; sourceTree = "<group>"; };
+		701B556FE0A479936CFB6C922E33B4C3 /* PayBoxSdk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PayBoxSdk.modulemap; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8660AC46262C59A3F53A334CF6A3FD81 /* Pods-neobis_ecomarket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-neobis_ecomarket-umbrella.h"; sourceTree = "<group>"; };
-		95D9EB7592759B0DB8FB6092EDAFAD36 /* Pods-neobis_ecomarket-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-neobis_ecomarket-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D979F039AC626C6C638BB2B72B6D6A86 /* Pods-neobis_ecomarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-neobis_ecomarket.debug.xcconfig"; sourceTree = "<group>"; };
-		F070C502FEC375EC69AF200ADB24F598 /* Pods-neobis_ecomarket-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-neobis_ecomarket-Info.plist"; sourceTree = "<group>"; };
-		F2045989F8EB25196405395F8C68469A /* Pods-neobis_ecomarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-neobis_ecomarket.release.xcconfig"; sourceTree = "<group>"; };
+		8104EA4A6284B6BB56BD47880C2D3E54 /* ConfigurationImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfigurationImpl.swift; path = PayBoxSdk/config/ConfigurationImpl.swift; sourceTree = "<group>"; };
+		84EAC73BC0A241C7085CCD8095D5BC95 /* PayBoxSdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PayBoxSdk.release.xcconfig; sourceTree = "<group>"; };
+		924F0615F5980FDDD8E04F0959453C2D /* Pods-neobis_ecomarket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-neobis_ecomarket-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DE6EF1CB2E7CE6675B441A716C9B7C9 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Models.swift; path = PayBoxSdk/models/Models.swift; sourceTree = "<group>"; };
+		9E7CB0AC4F8F64391F53E4B563E3E4EF /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = PayBoxSdk/api/Constants.swift; sourceTree = "<group>"; };
+		A1104740B6C88FFB76D437716CBF1649 /* Pods-neobis_ecomarket-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-neobis_ecomarket-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A411239272F69512FB0E4270A18F5E75 /* PayboxSdk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PayboxSdk.swift; path = PayBoxSdk/PayboxSdk.swift; sourceTree = "<group>"; };
+		A424B33E4CEEAD1A69203E10F449D335 /* ApiProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApiProtocol.swift; path = PayBoxSdk/api/ApiProtocol.swift; sourceTree = "<group>"; };
+		A54125D2DE8ACF67AD9BC58D337792DF /* PayBoxSdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PayBoxSdk.debug.xcconfig; sourceTree = "<group>"; };
+		AB5E06AA43561B82B93541DC11B78E54 /* Pods-neobis_ecomarket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-neobis_ecomarket-umbrella.h"; sourceTree = "<group>"; };
+		BD5D7AE7B86846D6F6BDE73D4708703B /* Pods-neobis_ecomarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-neobis_ecomarket.release.xcconfig"; sourceTree = "<group>"; };
+		CABC1C2C2A5F6C1075BBEC3925855024 /* ConfigurationPotocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfigurationPotocol.swift; path = PayBoxSdk/config/ConfigurationPotocol.swift; sourceTree = "<group>"; };
+		CCD7A3B633704350EB05EEFD89C63D97 /* ApiHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApiHelper.swift; path = PayBoxSdk/api/ApiHelper.swift; sourceTree = "<group>"; };
+		DAE9CA06949039134E9E83626972003E /* Pods-neobis_ecomarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-neobis_ecomarket.debug.xcconfig"; sourceTree = "<group>"; };
+		EC5626D142280F1FD016A2A2C9DDE07A /* PayBoxSdk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PayBoxSdk-prefix.pch"; sourceTree = "<group>"; };
+		FE6116A06DB45954D11821ED691FB946 /* PaymentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentView.swift; path = PayBoxSdk/view/PaymentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5A485CC1A54D107EC79CC39F5B7F9FC6 /* Frameworks */ = {
+		33EF97C3EE9DA1877C7130F7E0C35575 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93297F894824ABF7307813D1B94E7CF8 /* Foundation.framework in Frameworks */,
+				48B423D1F3196FB7C28196B5B424916F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE75540560408CE8501CD62B341F9113 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A62555826EF8260F81355571D10E65 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1134FA65E83D11A53CD1792B6906225A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				701B556FE0A479936CFB6C922E33B4C3 /* PayBoxSdk.modulemap */,
+				69E5CA7C1DD4041F9569DE355F57E61C /* PayBoxSdk-dummy.m */,
+				3B3CD81FA872BB18766F8E1659EBB53B /* PayBoxSdk-Info.plist */,
+				EC5626D142280F1FD016A2A2C9DDE07A /* PayBoxSdk-prefix.pch */,
+				169BE868AF3D1C37028266FD85945AC7 /* PayBoxSdk-umbrella.h */,
+				A54125D2DE8ACF67AD9BC58D337792DF /* PayBoxSdk.debug.xcconfig */,
+				84EAC73BC0A241C7085CCD8095D5BC95 /* PayBoxSdk.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PayBoxSdk";
+			sourceTree = "<group>";
+		};
+		31EDC1B2DF44148C205D3EFAD0B1F11C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46F2948F93E4DBE535E65B86AA6F3A19 /* PayBoxSdk */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		46F2948F93E4DBE535E65B86AA6F3A19 /* PayBoxSdk */ = {
+			isa = PBXGroup;
+			children = (
+				CCD7A3B633704350EB05EEFD89C63D97 /* ApiHelper.swift */,
+				A424B33E4CEEAD1A69203E10F449D335 /* ApiProtocol.swift */,
+				8104EA4A6284B6BB56BD47880C2D3E54 /* ConfigurationImpl.swift */,
+				CABC1C2C2A5F6C1075BBEC3925855024 /* ConfigurationPotocol.swift */,
+				9E7CB0AC4F8F64391F53E4B563E3E4EF /* Constants.swift */,
+				9DE6EF1CB2E7CE6675B441A716C9B7C9 /* Models.swift */,
+				0B54065495B0FAFAB099D62E74FB4329 /* PayBoxSdk.h */,
+				A411239272F69512FB0E4270A18F5E75 /* PayboxSdk.swift */,
+				519AEFA7B76FF4128A779CFC0701B405 /* PayboxSdkProtocol.swift */,
+				FE6116A06DB45954D11821ED691FB946 /* PaymentView.swift */,
+				67AD4E8939036AD48FB43E20DC851520 /* SignHelper.swift */,
+				1134FA65E83D11A53CD1792B6906225A /* Support Files */,
+			);
+			path = PayBoxSdk;
+			sourceTree = "<group>";
+		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -46,28 +140,29 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		88432905450530E0F07841B7A1B91FFB /* Targets Support Files */ = {
+		67A2D78EA58C20133510CFC0265D1F3F /* Pods-neobis_ecomarket */ = {
 			isa = PBXGroup;
 			children = (
-				C8D0023B20EB06D8A60D83FE5BD7F1D9 /* Pods-neobis_ecomarket */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		C8D0023B20EB06D8A60D83FE5BD7F1D9 /* Pods-neobis_ecomarket */ = {
-			isa = PBXGroup;
-			children = (
-				17E9CD7907C449FAC83BF69864CB49EC /* Pods-neobis_ecomarket.modulemap */,
-				5D24732D2807CFC213C0E5FB46F58045 /* Pods-neobis_ecomarket-acknowledgements.markdown */,
-				95D9EB7592759B0DB8FB6092EDAFAD36 /* Pods-neobis_ecomarket-acknowledgements.plist */,
-				41C64F5EF7023562C9D07FCB903F7974 /* Pods-neobis_ecomarket-dummy.m */,
-				F070C502FEC375EC69AF200ADB24F598 /* Pods-neobis_ecomarket-Info.plist */,
-				8660AC46262C59A3F53A334CF6A3FD81 /* Pods-neobis_ecomarket-umbrella.h */,
-				D979F039AC626C6C638BB2B72B6D6A86 /* Pods-neobis_ecomarket.debug.xcconfig */,
-				F2045989F8EB25196405395F8C68469A /* Pods-neobis_ecomarket.release.xcconfig */,
+				4EC5CFC5989A2BB71EB5790800D2E5CB /* Pods-neobis_ecomarket.modulemap */,
+				A1104740B6C88FFB76D437716CBF1649 /* Pods-neobis_ecomarket-acknowledgements.markdown */,
+				5AE4D55B5FDE548B5EC3FA56526B8800 /* Pods-neobis_ecomarket-acknowledgements.plist */,
+				924F0615F5980FDDD8E04F0959453C2D /* Pods-neobis_ecomarket-dummy.m */,
+				3DA839E6A9C986A5F35BA92DDD0F1DF9 /* Pods-neobis_ecomarket-frameworks.sh */,
+				1968B27807C896360E49CAF68FC08A44 /* Pods-neobis_ecomarket-Info.plist */,
+				AB5E06AA43561B82B93541DC11B78E54 /* Pods-neobis_ecomarket-umbrella.h */,
+				DAE9CA06949039134E9E83626972003E /* Pods-neobis_ecomarket.debug.xcconfig */,
+				BD5D7AE7B86846D6F6BDE73D4708703B /* Pods-neobis_ecomarket.release.xcconfig */,
 			);
 			name = "Pods-neobis_ecomarket";
 			path = "Target Support Files/Pods-neobis_ecomarket";
+			sourceTree = "<group>";
+		};
+		9B0F1C755DB60AE68B45955646B0CD66 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				67A2D78EA58C20133510CFC0265D1F3F /* Pods-neobis_ecomarket */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -75,8 +170,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				FE24C1F461EA9B5D9FB8A95BC9EF4C93 /* Products */,
-				88432905450530E0F07841B7A1B91FFB /* Targets Support Files */,
+				31EDC1B2DF44148C205D3EFAD0B1F11C /* Pods */,
+				F2DFF50975C57EF19DE8621F56B018BD /* Products */,
+				9B0F1C755DB60AE68B45955646B0CD66 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,10 +184,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FE24C1F461EA9B5D9FB8A95BC9EF4C93 /* Products */ = {
+		F2DFF50975C57EF19DE8621F56B018BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09E14D5DFB0A22766B529E412D3B98E3 /* Pods-neobis_ecomarket */,
+				4117D694C74D41840BF946D821D06EEA /* PayBoxSdk.framework */,
+				09E14D5DFB0A22766B529E412D3B98E3 /* Pods_neobis_ecomarket.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,33 +196,61 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		80A3DE71DD070E9A96BAF624DDB06936 /* Headers */ = {
+		B36DA673C461E3C3E316FD62BAA08C1A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BE64B96FE500AD236E223774E289227 /* Pods-neobis_ecomarket-umbrella.h in Headers */,
+				36C9C44895B9877E2663EA4DA889F1AF /* PayBoxSdk.h in Headers */,
+				27D1ECE98A3863D2A8DD3BA1F9CC89C0 /* PayBoxSdk-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBF1D83DB31CF225F54A10F2AC26A48E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72BE1134E57BE2A51B395F7033F1195B /* Pods-neobis_ecomarket-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		53EC4B5D1362CB090089FB672D60D3FC /* Pods-neobis_ecomarket */ = {
+		34FE93D6BF04BCC6C7BF3822B8D0E1AD /* PayBoxSdk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BBDFFB959AF5AA23A79C89BDD897D42 /* Build configuration list for PBXNativeTarget "Pods-neobis_ecomarket" */;
+			buildConfigurationList = 9E7CF8CA337724F41E26FC953AC9DBD9 /* Build configuration list for PBXNativeTarget "PayBoxSdk" */;
 			buildPhases = (
-				80A3DE71DD070E9A96BAF624DDB06936 /* Headers */,
-				DE73626897D267510A548033069ED4FA /* Sources */,
-				5A485CC1A54D107EC79CC39F5B7F9FC6 /* Frameworks */,
-				18B8D1CA113A65735BA328F7A46F455F /* Resources */,
+				B36DA673C461E3C3E316FD62BAA08C1A /* Headers */,
+				2B00D7F18B08C25E96C4FB6679871445 /* Sources */,
+				33EF97C3EE9DA1877C7130F7E0C35575 /* Frameworks */,
+				378BC23618919AF9FF11E36147C45485 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = PayBoxSdk;
+			productName = PayBoxSdk;
+			productReference = 4117D694C74D41840BF946D821D06EEA /* PayBoxSdk.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		53EC4B5D1362CB090089FB672D60D3FC /* Pods-neobis_ecomarket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E671504D3B020EFF37477873D186C26 /* Build configuration list for PBXNativeTarget "Pods-neobis_ecomarket" */;
+			buildPhases = (
+				CBF1D83DB31CF225F54A10F2AC26A48E /* Headers */,
+				EB6DCE29483D3895147775297367C424 /* Sources */,
+				BE75540560408CE8501CD62B341F9113 /* Frameworks */,
+				34108264E5AD9A83B21A199DA3C95474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BE3091D1E40D1642877FD4B9267D571 /* PBXTargetDependency */,
+			);
 			name = "Pods-neobis_ecomarket";
 			productName = Pods_neobis_ecomarket;
-			productReference = 09E14D5DFB0A22766B529E412D3B98E3 /* Pods-neobis_ecomarket */;
+			productReference = 09E14D5DFB0A22766B529E412D3B98E3 /* Pods_neobis_ecomarket.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -134,8 +259,9 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1520;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -146,17 +272,25 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = FE24C1F461EA9B5D9FB8A95BC9EF4C93 /* Products */;
+			productRefGroup = F2DFF50975C57EF19DE8621F56B018BD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				34FE93D6BF04BCC6C7BF3822B8D0E1AD /* PayBoxSdk */,
 				53EC4B5D1362CB090089FB672D60D3FC /* Pods-neobis_ecomarket */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		18B8D1CA113A65735BA328F7A46F455F /* Resources */ = {
+		34108264E5AD9A83B21A199DA3C95474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378BC23618919AF9FF11E36147C45485 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -166,31 +300,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DE73626897D267510A548033069ED4FA /* Sources */ = {
+		2B00D7F18B08C25E96C4FB6679871445 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BC7F4C978913943BCBD172BE1B332CD /* Pods-neobis_ecomarket-dummy.m in Sources */,
+				8A9F1ABF1FCFB3F700DF65E5873DAB07 /* ApiHelper.swift in Sources */,
+				5E94A7748C58149E13EC7AD0B4E8B2DF /* ApiProtocol.swift in Sources */,
+				949DDA2C38B2D99FDB2FD3E1BCB1C6E1 /* ConfigurationImpl.swift in Sources */,
+				A74D03B5AA2CA2723CEF79E7A9B90345 /* ConfigurationPotocol.swift in Sources */,
+				E2E83253674430F8E0414652B7D5F22C /* Constants.swift in Sources */,
+				F7EDF028B8D783BCB0B4F69D3A217BA4 /* Models.swift in Sources */,
+				3523615E85CFF4D35711D625FFAF4EEC /* PayboxSdk.swift in Sources */,
+				9E204F8E578EE1A4B8ED85EDAB754777 /* PayBoxSdk-dummy.m in Sources */,
+				FFB99C9AFFCBAB0D1CFCFA2BF2147881 /* PayboxSdkProtocol.swift in Sources */,
+				D306828C5CD55FB4125DDE9D6E050A6B /* PaymentView.swift in Sources */,
+				7D454C09CA91C1654761B002AE4E334A /* SignHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB6DCE29483D3895147775297367C424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				305C2F91066E32402EBF5F427A9F0249 /* Pods-neobis_ecomarket-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8BE3091D1E40D1642877FD4B9267D571 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PayBoxSdk;
+			target = 34FE93D6BF04BCC6C7BF3822B8D0E1AD /* PayBoxSdk */;
+			targetProxy = 9396F9CFB252302F1EF1F8B9E871AFC3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		08B7322467444231BB26DFACF98306CF /* Debug */ = {
+		12F8DBF2CC7425773A143226EDF88C4A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D979F039AC626C6C638BB2B72B6D6A86 /* Pods-neobis_ecomarket.debug.xcconfig */;
+			baseConfigurationReference = DAE9CA06949039134E9E83626972003E /* Pods-neobis_ecomarket.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
@@ -201,6 +361,8 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -214,20 +376,19 @@
 			};
 			name = Debug;
 		};
-		47A972D30908FE6E635A6B79F9AB50E5 /* Release */ = {
+		3E27057D793B577448D980576A29B490 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2045989F8EB25196405395F8C68469A /* Pods-neobis_ecomarket.release.xcconfig */;
+			baseConfigurationReference = BD5D7AE7B86846D6F6BDE73D4708703B /* Pods-neobis_ecomarket.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
@@ -238,6 +399,8 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -287,9 +450,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -310,13 +475,81 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
+		};
+		97A7338C8039476C851E4780DF052A45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A54125D2DE8ACF67AD9BC58D337792DF /* PayBoxSdk.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PayBoxSdk/PayBoxSdk-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PayBoxSdk/PayBoxSdk-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/PayBoxSdk/PayBoxSdk.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				PRODUCT_MODULE_NAME = PayBoxSdk;
+				PRODUCT_NAME = PayBoxSdk;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C6DB647968B455026B28BE0839C67921 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84EAC73BC0A241C7085CCD8095D5BC95 /* PayBoxSdk.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PayBoxSdk/PayBoxSdk-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PayBoxSdk/PayBoxSdk-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/PayBoxSdk/PayBoxSdk.modulemap";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
+				PRODUCT_MODULE_NAME = PayBoxSdk;
+				PRODUCT_NAME = PayBoxSdk;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		FF0A36149038A192FFD678E1D4A40D3B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -353,9 +586,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -372,7 +607,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -392,11 +626,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BBDFFB959AF5AA23A79C89BDD897D42 /* Build configuration list for PBXNativeTarget "Pods-neobis_ecomarket" */ = {
+		7E671504D3B020EFF37477873D186C26 /* Build configuration list for PBXNativeTarget "Pods-neobis_ecomarket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				08B7322467444231BB26DFACF98306CF /* Debug */,
-				47A972D30908FE6E635A6B79F9AB50E5 /* Release */,
+				12F8DBF2CC7425773A143226EDF88C4A /* Debug */,
+				3E27057D793B577448D980576A29B490 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E7CF8CA337724F41E26FC953AC9DBD9 /* Build configuration list for PBXNativeTarget "PayBoxSdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A7338C8039476C851E4780DF052A45 /* Debug */,
+				C6DB647968B455026B28BE0839C67921 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

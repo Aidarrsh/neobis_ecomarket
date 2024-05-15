@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Reachability
+import PayBoxSdk
 
 class OrderViewController: UIViewController {
     
@@ -23,6 +24,7 @@ class OrderViewController: UIViewController {
     var orderProtocol: OrderProtocol
     let alertView = MainAlertView()
     let reachability = try! Reachability()
+    let sdk = PayboxSdk.initialize(merchantId: 0, secretKey: "secretKey")
     
     init(orderProtocol: OrderProtocol,totalPrice: Int, items: [ProductItem]) {
         self.orderProtocol = orderProtocol
@@ -181,23 +183,15 @@ class OrderViewController: UIViewController {
     
     @objc func orderButtonPressed() {
         if isButtonActive == true {
-            guard let phoneNumber = contentView.numberTextField.text else { return }
-            guard let address = contentView.adressTextField.text else { return }
-            guard let referencePoint = contentView.orientierTextField.text else { return }
-            guard let comments = contentView.commentTextField.text else { return }
             
-            orderProtocol.order(products: items, phone_number: phoneNumber, adress: address, reference_point: referencePoint, comments: comments) { [weak self] result in
-                switch result {
-                case .success(let json):
-                    self?.orderNumber = json["order_number"] as? Int
-                    self?.createdAt = json["created_at"] as? String
-                    DispatchQueue.main.async {
-                        self?.presentAlert()
-                    }
-                case .failure(let error):
-                    print("Error ordering: \(error)")
-                }
+            let bottomSheetVC = OrderBottomSheet()
+            bottomSheetVC.delegate = self
+            if let sheet = bottomSheetVC.sheetPresentationController {
+                sheet.detents = [.custom { _ in self.flexibleHeight(to: 130) }]
+                sheet.prefersGrabberVisible = true
+                sheet.preferredCornerRadius = self.flexibleWidth(to: 16)
             }
+            present(bottomSheetVC, animated: true, completion: nil)
         }
     }
 }
@@ -217,5 +211,35 @@ extension OrderViewController: UITextFieldDelegate {
         }
         checkTextFields()
         return true
+    }
+}
+
+extension OrderViewController: OrderBottomSheetDelegate {
+    func didSelectPaymentMethod(usingCard: Bool) {
+        if usingCard {
+            
+            let vc = PaymentViewController()
+            
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            guard let phoneNumber = contentView.numberTextField.text else { return }
+            guard let address = contentView.adressTextField.text else { return }
+            guard let referencePoint = contentView.orientierTextField.text else { return }
+            guard let comments = contentView.commentTextField.text else { return }
+            
+            orderProtocol.order(products: items, phone_number: phoneNumber, adress: address, reference_point: referencePoint, comments: comments) { [weak self] result in
+                switch result {
+                case .success(let json):
+                    self?.orderNumber = json["order_number"] as? Int
+                    self?.createdAt = json["created_at"] as? String
+                    DispatchQueue.main.async {
+                        self?.presentAlert()
+                    }
+                case .failure(let error):
+                    print("Error ordering: \(error)")
+                }
+            }
+        }
+        
     }
 }

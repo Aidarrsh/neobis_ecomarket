@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1231DE2BEF56E5001C45B0 /* OrderBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1231DD2BEF56E5001C45B0 /* OrderBottomSheet.swift */; };
+		1C1231E12BEF6AC0001C45B0 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1231E02BEF6AC0001C45B0 /* PaymentViewController.swift */; };
 		1C9178A42AF50F6F003D84B1 /* extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */; };
 		1C9178A72AF627D1003D84B1 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178A62AF627D1003D84B1 /* OrderViewController.swift */; };
 		1C9178AA2AF627DC003D84B1 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9178A92AF627DC003D84B1 /* OrderView.swift */; };
@@ -85,6 +87,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C1231DD2BEF56E5001C45B0 /* OrderBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBottomSheet.swift; sourceTree = "<group>"; };
+		1C1231E02BEF6AC0001C45B0 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		1C9178A32AF50F6F003D84B1 /* extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + UIImage.swift"; sourceTree = "<group>"; };
 		1C9178A62AF627D1003D84B1 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		1C9178A92AF627DC003D84B1 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -178,6 +182,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C1231DF2BEF6AAA001C45B0 /* PaymentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1C1231E02BEF6AC0001C45B0 /* PaymentViewController.swift */,
+			);
+			path = PaymentScreen;
+			sourceTree = "<group>";
+		};
 		1C9178A52AF627AD003D84B1 /* OrderScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +205,7 @@
 			children = (
 				1C9178A92AF627DC003D84B1 /* OrderView.swift */,
 				1CCCCBCC2AFB7E95008F33F1 /* OrderAlertView.swift */,
+				1C1231DD2BEF56E5001C45B0 /* OrderBottomSheet.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,6 +324,7 @@
 				1C9178B02AF64444003D84B1 /* HistoryScreen */,
 				1CCF7A942AF2869700231B31 /* InfoScreen */,
 				1C9178A52AF627AD003D84B1 /* OrderScreen */,
+				1C1231DF2BEF6AAA001C45B0 /* PaymentScreen */,
 				1CCCCBCE2AFCB852008F33F1 /* HistoryBottomScreen */,
 				1CBF5FFB2AF3B55C00647233 /* BagScreen */,
 				1CCF7A912AF27F1800231B31 /* TabbarController */,
@@ -489,7 +503,6 @@
 				3E6147DA0C0334854F249ED8 /* Pods-neobis_ecomarket.debug.xcconfig */,
 				DC9AAE2C311C64FBBD074338 /* Pods-neobis_ecomarket.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -512,6 +525,7 @@
 				1CCF7A152AEA54D800231B31 /* Sources */,
 				1CCF7A162AEA54D800231B31 /* Frameworks */,
 				1CCF7A172AEA54D800231B31 /* Resources */,
+				FAB2609F952E41B178C94C07 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -535,7 +549,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					1CCF7A182AEA54D800231B31 = {
 						CreatedOnToolsVersion = 14.3;
@@ -552,9 +566,9 @@
 			);
 			mainGroup = 1CCF7A102AEA54D800231B31;
 			packageReferences = (
-				1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit.git" */,
+				1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */,
 				1C9178C22AF8E0CA003D84B1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+				1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */,
 			);
 			productRefGroup = 1CCF7A1A2AEA54D800231B31 /* Products */;
 			projectDirPath = "";
@@ -627,6 +641,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FAB2609F952E41B178C94C07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-neobis_ecomarket/Pods-neobis_ecomarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -665,6 +696,7 @@
 				1CCCCBD22AFCDB83008F33F1 /* CustomHistoryBottomCell.swift in Sources */,
 				1C9BE77A2AFA22A30036E33D /* HistoryViewModel.swift in Sources */,
 				1CCF7A772AEFC2EC00231B31 /* CustomProductCell.swift in Sources */,
+				1C1231DE2BEF56E5001C45B0 /* OrderBottomSheet.swift in Sources */,
 				1CCF7A6D2AEBC04500231B31 /* ProductModel.swift in Sources */,
 				1CCF7A1D2AEA54D800231B31 /* AppDelegate.swift in Sources */,
 				1CCF7A1F2AEA54D800231B31 /* SceneDelegate.swift in Sources */,
@@ -672,6 +704,7 @@
 				1CBF60022AF3BDBF00647233 /* CustomBagCell.swift in Sources */,
 				1C9178AD2AF62B04003D84B1 /* AnimatedTextField.swift in Sources */,
 				1C9178A72AF627D1003D84B1 /* OrderViewController.swift in Sources */,
+				1C1231E12BEF6AC0001C45B0 /* PaymentViewController.swift in Sources */,
 				1CCF7A6A2AEB842B00231B31 /* CustomMainViewCell.swift in Sources */,
 				1CCF7A992AF286F900231B31 /* InfoView.swift in Sources */,
 				1CCF7A682AEB834000231B31 /* extension + NSObject.swift in Sources */,
@@ -729,6 +762,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -789,6 +823,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -816,6 +851,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QDV7MRC2HW;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = neobis_ecomarket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -845,6 +881,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QDV7MRC2HW;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = neobis_ecomarket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -897,7 +934,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+		1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
 			requirement = {
@@ -905,7 +942,7 @@
 				kind = branch;
 			};
 		};
-		1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit.git" */ = {
+		1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Snapkit/Snapkit.git";
 			requirement = {
@@ -923,12 +960,12 @@
 		};
 		1CCCCBD42AFCF89B008F33F1 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			package = 1CCCCBD32AFCF89B008F33F1 /* XCRemoteSwiftPackageReference "Reachability" */;
 			productName = Reachability;
 		};
 		1CCF7A362AEB7F3D00231B31 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit.git" */;
+			package = 1CCF7A352AEB7F3D00231B31 /* XCRemoteSwiftPackageReference "Snapkit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

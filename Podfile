@@ -6,4 +6,6 @@ target 'neobis_ecomarket' do
   use_frameworks!
 
   # Pods for neobis_ecomarket
+  pod 'PayBoxSdk', :git => 'https://github.com/PayBox/SDK_iOS-input-.git', :submodules => true
+
 end
