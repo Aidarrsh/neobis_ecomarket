@@ -5,6 +5,17 @@ import PayBoxSdk
 
 class PaymentViewController: UIViewController, WebDelegate {
     
+    let amount: Int
+    
+    init(amount: Int) {
+        self.amount = amount
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func loadStarted() {
         print("Loading started")
     }
@@ -13,7 +24,7 @@ class PaymentViewController: UIViewController, WebDelegate {
         print("Loading finished")
     }
     
-    let sdk = PayboxSdk.initialize(merchantId: 503623, secretKey: "UnPLLvWsuXPyC3wd")
+    let sdk = PayboxSdk.initialize(merchantId: 554242, secretKey: "PQZlq2PGJeHxFiIS")
     
     lazy var paymentView: PaymentView = {
         let view = PaymentView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
@@ -36,7 +47,6 @@ class PaymentViewController: UIViewController, WebDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        initPayment()
     }
     
     func setupView() {
@@ -85,10 +95,10 @@ class PaymentViewController: UIViewController, WebDelegate {
         //Язык платежной страницы:
         sdk.config().setLanguage(language: .ru)
         //Для передачи информации от платежного гейта:
-        sdk.config().setCheckUrl(url: "https://yoursite.kg")
-        sdk.config().setResultUrl(url: "https://yoursite.kg")
-        sdk.config().setRefundUrl(url: "https://yoursite.kg")
-        sdk.config().setClearingUrl(url: "https://yoursite.kg")
+        sdk.config().setCheckUrl(url: "https://api.freedompay.kz")
+        sdk.config().setResultUrl(url: "https://api.freedompay.kz")
+        sdk.config().setRefundUrl(url: "https://api.freedompay.kz")
+        sdk.config().setClearingUrl(url: "https://api.freedompay.kz")
         sdk.config().setRequestMethod(requestMethod: .POST)
         
         //Для отображения Frame вместо платежной страницы
@@ -99,13 +109,15 @@ class PaymentViewController: UIViewController, WebDelegate {
         
         //Для отслеживания прогресса загрузки платежной страницы используйте WebDelegate:
         paymentView.delegate = self
+        
+        initPayment()
     }
     
     func initPayment() {
-        let amount: Float = 100
-        let description = "some description"
-        let orderId = "1234"
-        let userId = "1234"
+        let amount: Float = Float(amount)
+        let description = "Pay by YandexMoney"
+        let orderId = "12345"
+        let userId = "12345"
         
         sdk.createPayment(amount: amount, description: description, orderId: orderId, userId: userId, extraParams: nil) { payment, error in
             if let error = error {

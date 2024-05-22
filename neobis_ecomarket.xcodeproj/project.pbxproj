@@ -26,6 +26,8 @@
 		1C9BE77A2AFA22A30036E33D /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9BE7792AFA22A30036E33D /* HistoryViewModel.swift */; };
 		1CA29E232AF3AA1000457629 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E222AF3AA1000457629 /* CoreDataStack.swift */; };
 		1CA29E252AF3AD5D00457629 /* extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA29E242AF3AD5D00457629 /* extension + UIViewController.swift */; };
+		1CBC988A2BFDFEAB0053C893 /* Pods_neobis_ecomarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7B9777CEDDE38BB95FC921 /* Pods_neobis_ecomarket.framework */; };
+		1CBC988B2BFDFEAB0053C893 /* Pods_neobis_ecomarket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7B9777CEDDE38BB95FC921 /* Pods_neobis_ecomarket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1CBF5FFD2AF3B57000647233 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF5FFC2AF3B57000647233 /* BagViewController.swift */; };
 		1CBF60002AF3B58E00647233 /* BagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF5FFF2AF3B58E00647233 /* BagView.swift */; };
 		1CBF60022AF3BDBF00647233 /* CustomBagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBF60012AF3BDBF00647233 /* CustomBagCell.swift */; };
@@ -83,8 +85,21 @@
 		1CCF7A932AF27F2D00231B31 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A922AF27F2D00231B31 /* TabbarController.swift */; };
 		1CCF7A962AF286A400231B31 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A952AF286A400231B31 /* InfoViewController.swift */; };
 		1CCF7A992AF286F900231B31 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF7A982AF286F900231B31 /* InfoView.swift */; };
-		42683660F385811F69439823 /* Pods_neobis_ecomarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7B9777CEDDE38BB95FC921 /* Pods_neobis_ecomarket.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1CBC988C2BFDFEAB0053C893 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1CBC988B2BFDFEAB0053C893 /* Pods_neobis_ecomarket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C1231DD2BEF56E5001C45B0 /* OrderBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBottomSheet.swift; sourceTree = "<group>"; };
@@ -174,8 +189,8 @@
 			files = (
 				1C9178C42AF8E0CA003D84B1 /* Kingfisher in Frameworks */,
 				1CCCCBD52AFCF89B008F33F1 /* Reachability in Frameworks */,
+				1CBC988A2BFDFEAB0053C893 /* Pods_neobis_ecomarket.framework in Frameworks */,
 				1CCF7A372AEB7F3D00231B31 /* SnapKit in Frameworks */,
-				42683660F385811F69439823 /* Pods_neobis_ecomarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +541,7 @@
 				1CCF7A162AEA54D800231B31 /* Frameworks */,
 				1CCF7A172AEA54D800231B31 /* Resources */,
 				FAB2609F952E41B178C94C07 /* [CP] Embed Pods Frameworks */,
+				1CBC988C2BFDFEAB0053C893 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -864,7 +880,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "aidarrsh.neobis-ecomarket";
+				PRODUCT_BUNDLE_IDENTIFIER = "money.paybox.sample-ios-swift-sdk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -894,7 +910,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "aidarrsh.neobis-ecomarket";
+				PRODUCT_BUNDLE_IDENTIFIER = "money.paybox.sample-ios-swift-sdk";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -218,7 +218,7 @@ extension OrderViewController: OrderBottomSheetDelegate {
     func didSelectPaymentMethod(usingCard: Bool) {
         if usingCard {
             
-            let vc = PaymentViewController()
+            let vc = PaymentViewController(amount: totalPrice)
             
             navigationController?.pushViewController(vc, animated: true)
         } else {

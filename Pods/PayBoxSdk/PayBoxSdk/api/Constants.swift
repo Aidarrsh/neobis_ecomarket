@@ -2,10 +2,10 @@
 import Foundation
 
 class Urls {
-    static let DEFAULT_FREEDOM_URL = "https://api.freedompay.money/"
+    static let DEFAULT_FREEDOM_URL = "https://api.freedompay.kz/"
     static let RU_PAYBOX_URL = "https://api.paybox.ru/"
     static let UZ_FREEDOM_URL = "https://api.freedompay.uz/"
-    static let CUSTOMER_DEFAULT_URL = "https://customer.freedompay.money"
+    static let CUSTOMER_DEFAULT_URL = "https://customer.freedompay.kz"
     static let CUSTOMER_RU_URL = "https://customer.paybox.ru"
     static let CUSTOMER_UZ_URL = "https://customer.freedompay.uz"
     static let CARDSTORAGE = "/cardstorage/"
